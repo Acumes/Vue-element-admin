@@ -75,7 +75,7 @@ export default {
     username: '请输入用户名',
     password: '请输入密码',
     usernameTips: '请输入正确的用户名',
-    passwordTips: '密码不能少于6位数'
+    passwordTips: '密码不能少于5位数'
   },
   documentation: {
     documentation: '文档',

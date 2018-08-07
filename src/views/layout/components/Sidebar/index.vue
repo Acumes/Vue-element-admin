@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <el-scrollbar wrapClass="scrollbar-wrapper">
+      <el-scrollbar wrapClass="scrollbar-wrapper scroll-height">
         <el-menu
           mode="vertical"
           :show-timeout="200"
@@ -38,3 +38,9 @@
     }
   }
 </script>
+<style >
+  .scroll-height{
+    max-height: 1200px;
+    overflow: scroll;
+  }
+</style>

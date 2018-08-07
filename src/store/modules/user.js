@@ -49,9 +49,9 @@ const user = {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
         loginByUsername(username, userInfo.password).then(response => {
-          const data = response.data
-          commit('SET_TOKEN', data.token)
-          setToken(response.data.token)
+          const data = response.data.data
+          commit('SET_TOKEN', data.access_token)
+          setToken(data.access_token)
           resolve()
         }).catch(error => {
           reject(error)
@@ -67,13 +67,14 @@ const user = {
             reject('error')
           }
           const data = response.data
-
-          if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
-            commit('SET_ROLES', data.roles)
+          const roles = ['admin']
+          if (roles && roles.length > 0) { // 验证返回的roles是否是一个非空数组
+            commit('SET_ROLES', roles)
           } else {
             reject('getInfo: roles must be a non-null array !')
           }
 
+          data.avatar = ''
           commit('SET_NAME', data.name)
           commit('SET_AVATAR', data.avatar)
           commit('SET_INTRODUCTION', data.introduction)

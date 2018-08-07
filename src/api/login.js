@@ -1,29 +1,23 @@
 import request from '@/utils/request'
 
 export function loginByUsername(username, password) {
-  const data = {
-    username,
-    password
-  }
   return request({
-    url: '/open/api/user/login',
-    method: 'post',
-    data
+    url: '/auth/token?username=' + username + '&password=' + password,
+    method: 'post'
   })
 }
 
 export function logout() {
   return request({
-    url: '/login/logout',
-    method: 'post'
+    url: '/auth/token',
+    method: 'delete'
   })
 }
 
-export function getUserInfo(token) {
+export function getUserInfo() {
   return request({
-    url: '/user/info',
-    method: 'get',
-    params: { token }
+    url: '/users/getCurrentUser',
+    method: 'get'
   })
 }
 
