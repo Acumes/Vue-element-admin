@@ -60,7 +60,9 @@ export default {
     exportZip: 'Export Zip',
     theme: 'Theme',
     clipboardDemo: 'Clipboard',
-    i18n: 'I18n'
+    i18n: 'I18n',
+    dataCenter: 'Data Center',
+    user: 'User Manager'
   },
   navbar: {
     logOut: 'Log Out',

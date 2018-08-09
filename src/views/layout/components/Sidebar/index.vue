@@ -40,7 +40,15 @@
 </script>
 <style >
   .scroll-height{
-    max-height: 1200px;
+    height: 1000px;
     overflow: scroll;
+  }
+  @media only screen and (max-width: 910px) {
+    .scroll-height{
+      max-height: 1000px;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
   }
 </style>

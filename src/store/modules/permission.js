@@ -45,7 +45,6 @@ const permission = {
   actions: {
     GenerateRoutes({ commit }, data) {
       return new Promise(resolve => {
-        debugger
         const { roles } = data
         let accessedRouters
         if (roles.indexOf('admin') >= 0) {

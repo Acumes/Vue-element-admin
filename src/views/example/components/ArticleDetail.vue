@@ -163,7 +163,6 @@ export default {
   methods: {
     fetchData(id) {
       fetchArticle(id).then(response => {
-        debugger
         this.postForm = response.data
         // Just for test
         this.postForm.title += `   Article Id:${this.postForm.id}`

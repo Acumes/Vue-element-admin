@@ -19,7 +19,6 @@ export default {
   },
   watch: {
     theme(val, oldVal) {
-      debugger
       if (typeof val !== 'string') return
       const themeCluster = this.getThemeCluster(val.replace('#', ''))
       const originalCluster = this.getThemeCluster(oldVal.replace('#', ''))
@@ -87,7 +86,6 @@ export default {
     },
 
     getThemeCluster(theme) {
-      debugger
       const tintColor = (color, tint) => {
         let red = parseInt(color.slice(0, 2), 16)
         let green = parseInt(color.slice(2, 4), 16)
