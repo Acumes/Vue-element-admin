@@ -7,6 +7,8 @@ import enLocale from './en'
 import zhLocale from './zh'
 import enUserLocale from './user/user_en'
 import zhUserLocale from './user/user_zh'
+import enRoleLocale from './role/role_en'
+import zhRoleLocale from './role/role_zh'
 
 Vue.use(VueI18n)
 
@@ -14,12 +16,14 @@ const messages = {
   en: {
     ...enLocale,
     ...elementEnLocale,
-    ...enUserLocale
+    ...enUserLocale,
+    ...enRoleLocale
   },
   zh: {
     ...zhLocale,
     ...elementZhLocale,
-    ...zhUserLocale
+    ...zhUserLocale,
+    ...zhRoleLocale
   }
 }
 

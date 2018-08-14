@@ -62,7 +62,9 @@ export default {
     clipboardDemo: 'Clipboard',
     i18n: 'I18n',
     dataCenter: 'Data Center',
-    user: 'User Manager'
+    user: 'User Manager',
+    role: 'Role Manager',
+    menu: 'Menu Manager'
   },
   navbar: {
     logOut: 'Log Out',
@@ -149,5 +151,15 @@ export default {
     close: 'Close',
     closeOthers: 'Close Others',
     closeAll: 'Close All'
+  },
+  warning: {
+    tips: 'Tips',
+    text: 'This operation will permanently delete the data. Do you want to continue?',
+    success: 'Delete success',
+    fault: 'Delete cancel'
+  },
+  constant: {
+    enabled: 'enabled',
+    disabled: 'disabled'
   }
 }

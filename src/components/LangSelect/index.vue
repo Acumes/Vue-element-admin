@@ -20,6 +20,7 @@ export default {
   methods: {
     handleSetLanguage(lang) {
       this.$i18n.locale = lang
+      document.title = this.$t('route.' + this.$route.meta.title)
       this.$store.dispatch('setLanguage', lang)
       this.$message({
         message: 'switch language success',

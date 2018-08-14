@@ -2,14 +2,11 @@
   <div class="app-container">
     <div class="filter-container">
       <el-input @keyup.enter.native="handleFilter" style="width: 200px;" class="filter-item"
-                :placeholder="$t('user.table.loginName')" v-model="listQuery.loginName">
-      </el-input>
-      <el-input @keyup.enter.native="handleFilter" style="width: 200px;" class="filter-item"
-                :placeholder="$t('user.table.mobile')" v-model="listQuery.mobile">
+                :placeholder="$t('role.table.name')" v-model="listQuery.name">
       </el-input>
       <el-select @change='handleFilter' style="width: 140px"
                  class="filter-item"
-                 :placeholder="$t('user.table.enable')"
+                 :placeholder="$t('role.table.enable')"
                  clearable v-model="listQuery.enable">
         <el-option v-for="item in status" :key="item.key" :label="$t(item.label)" :value="item.value">
         </el-option>
@@ -29,42 +26,37 @@
         :label="$t('table.id')"
         width="50">
       </el-table-column>
-      <el-table-column width="220px" align="center" :label="$t('user.table.loginName')">
-        <template slot-scope="scope">
-          <span>{{scope.row.loginName}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" :label="$t('user.table.name')">
+      <el-table-column align="center"  width="220px" :label="$t('role.table.name')">
         <template slot-scope="scope">
           <span>{{scope.row.name}}</span>
         </template>
       </el-table-column>
-      <el-table-column width="200px" align="center" :label="$t('user.table.email')">
+      <el-table-column align="center" :label="$t('role.table.remarks')">
         <template slot-scope="scope">
-          <span style='width:200px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;' :title="scope.row.email">{{scope.row.email}}</span>
+          <span>{{scope.row.remarks}}</span>
         </template>
       </el-table-column>
-      <el-table-column width="150px" align="center" :label="$t('user.table.mobile')">
+      <el-table-column width="160px" align="center" :label="$t('role.table.createUserName')">
         <template slot-scope="scope">
-          <span>{{scope.row.mobile}}</span>
+          <span>{{scope.row.createUserName}}</span>
         </template>
       </el-table-column>
-      <el-table-column width="100px" align="center" :label="$t('user.table.enable')">
+      <el-table-column width="160px" align="center" :label="$t('role.table.createDate')">
         <template slot-scope="scope">
-          <span v-if="scope.row.enabled === '1'">{{$t('user.enabled')}}</span>
-          <span v-if="scope.row.enabled === '2'">{{$t('user.disabled')}}</span>
+          <span>{{scope.row.createDate}}</span>
         </template>
       </el-table-column>
-      <el-table-column width="160px" align="center" :label="$t('user.table.createDate')">
+      <el-table-column width="100px" align="center" :label="$t('role.table.enable')">
         <template slot-scope="scope">
-          <span>{{$getTime(scope.row.createDate)}}</span>
+          <span v-if="scope.row.enabled === '1'">{{$t('role.enabled')}}</span>
+          <span v-if="scope.row.enabled === '2'">{{$t('role.disabled')}}</span>
         </template>
       </el-table-column>
       <el-table-column align="center" :label="$t('table.actions')" width="200" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">{{$t('table.edit')}}</el-button>
-          <el-button size="mini" type="danger"
-                     @click="handleDelete(scope.row)">{{$t('table.delete')}}
+          <el-button  size="mini" type="danger"
+                     @click="handleDelete(scope.row,'deleted')">{{$t('table.delete')}}
           </el-button>
         </template>
       </el-table-column>
@@ -81,27 +73,11 @@
                :visible.sync="dialogFormVisible">
       <el-form :rules="rules" ref="dataForm" :model="temp" label-position="right" label-width="70px"
                style='width: 400px; margin-left:50px;'>
-        <el-form-item :label="$t('user.table.loginName')" prop="loginName">
-          <el-input v-model="temp.loginName"></el-input>
+        <el-form-item :label="$t('role.table.name')" prop="name">
+          <el-input v-model="temp.name" :placeholder="$t('role.placeholder.name')"></el-input>
         </el-form-item>
-        <el-form-item :label="$t('user.table.password')" prop="password" v-if="dialogStatus === 'create'">
-          <el-input v-model="temp.password"></el-input>
-        </el-form-item>
-
-        <el-form-item :label="$t('user.table.name')" prop="name">
-          <el-input v-model="temp.name"></el-input>
-        </el-form-item>
-        <el-form-item :label="$t('user.table.mobile')" prop="mobile">
-          <el-input v-model="temp.mobile"></el-input>
-        </el-form-item>
-        <el-form-item :label="$t('user.table.phone')" prop="phone">
-          <el-input v-model="temp.phone"></el-input>
-        </el-form-item>
-        <el-form-item :label="$t('user.table.email')" prop="email">
-          <el-input v-model="temp.email"></el-input>
-        </el-form-item>
-        <el-form-item :label="$t('user.table.remarks')">
-          <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="Please input"
+        <el-form-item :label="$t('role.table.remarks')" prop="remarks">
+          <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" :placeholder="$t('role.placeholder.remarks')"
                     v-model="temp.remarks">
           </el-input>
         </el-form-item>
@@ -117,35 +93,16 @@
 </template>
 
 <script>
-  import { getUserList, addUser, updateUser, checkUser, delUser } from '@/api/dataCenter'
+  import { getRoles, addRole, updateRole, delRole } from '@/api/dataCenter'
   import waves from '@/directive/waves' // 水波纹指令
   import { status } from '@/utils/constant'
 
   export default {
-    name: 'userList',
+    name: 'roles',
     directives: {
       waves
     },
     data() {
-      /* 自定义表单校验 */
-      const checkUserName = (rule, value, callback) => {
-        if (value !== '') {
-          const params = {
-            loginName: this.temp.loginName,
-            edit: this.dialogStatus === 'create' ? 'false' : 'true',
-            userId: this.temp.id
-          }
-          checkUser(params).then(response => {
-            if (response.data) {
-              callback(new Error())
-            }
-            callback()
-          }).catch(oError => {
-          })
-        } else {
-          callback()
-        }
-      }
       return {
         list: null,
         total: null,
@@ -154,38 +111,29 @@
           pageNo: 1,
           pageSize: 10
         },
-        status,
         temp: {
           id: '',
           name: '',
-          remarks: '',
-          email: '',
-          mobile: '',
-          phone: '',
-          loginName: ''
+          remarks: ''
         },
         dialogFormVisible: false,
         dialogStatus: '',
+        status,
         rules: {
-          loginName: [
-            { required: true, message: this.$t('user.validation.requiredLoginName'), trigger: 'blur' }, { validator: checkUserName, message: this.$t('user.validation.existsLoginName'), trigger: 'blur' }
-          ],
-          password: [{ required: true, message: this.$t('user.validation.requiredPassword'), trigger: 'blur' }],
-          email: [{ required: true, message: this.$t('user.validation.requiredEmail'), trigger: 'blur' }],
-          mobile: [{ required: true, message: this.$t('user.validation.requiredMobile'), trigger: 'blur' }],
-          name: [{ required: true, message: this.$t('user.validation.requiredName'), trigger: 'blur' }]
+          name: [{ required: true, message: this.$t('role.validation.requiredName'), trigger: 'blur' }],
+          remarks: [{ required: true, message: this.$t('role.validation.requiredRemarks'), trigger: 'blur' }]
         }
       }
     },
     created() {
       document.title = this.$t('route.' + this.$route.meta.title)
-      this.getUserList()
+      this.getRoleList()
     },
     methods: {
-      getUserList() {
+      getRoleList() {
         this.listLoading = true
-        getUserList(this.listQuery).then(response => {
-          this.list = response.data.users
+        getRoles(this.listQuery).then(response => {
+          this.list = response.data.roles
           this.total = response.data.total
 
           // Just to simulate the time of the request
@@ -196,25 +144,21 @@
       },
       handleFilter() {
         this.listQuery.pageNo = 1
-        this.getUserList()
+        this.getRoleList()
       },
       handleSizeChange(val) {
         this.listQuery.pageSize = val
-        this.getUserList()
+        this.getRoleList()
       },
       handleCurrentChange(val) {
         this.listQuery.pageNo = val
-        this.getUserList()
+        this.getRoleList()
       },
       resetTemp() {
         this.temp = {
           id: '',
-          loginName: '',
           remarks: '',
-          name: '',
-          email: '',
-          phone: '',
-          mobile: ''
+          name: ''
         }
       },
       handleCreate() {
@@ -228,9 +172,9 @@
       createData() {
         this.$refs['dataForm'].validate((valid) => {
           if (valid) {
-            addUser(this.temp).then(response => {
+            addRole(this.temp).then(response => {
               this.dialogFormVisible = false
-              this.getUserList()
+              this.getRoleList()
             }).catch(oError => {
               console.log('d')
             })
@@ -252,9 +196,9 @@
         this.$refs['dataForm'].validate((valid) => {
           if (valid) {
             const tempData = Object.assign({}, this.temp)
-            updateUser(tempData).then(response => {
+            updateRole(tempData).then(response => {
               this.dialogFormVisible = false
-              this.getUserList()
+              this.getRoleList()
             }).catch(oError => {
               console.log(oError)
             })
@@ -268,12 +212,12 @@
           cancelButtonText: this.$t('table.cancel'),
           type: 'warning'
         }).then(() => {
-          delUser(row.id).then(resopnse => {
+          delRole(row.id).then(resopnse => {
             this.$message({
               type: 'success',
               message: that.$t('warning.success')
             })
-            this.getUserList()
+            this.getRoleList()
           }).catch(oError => {
             console.log(oError)
           })

@@ -62,7 +62,9 @@ export default {
     clipboardDemo: 'Clipboard',
     i18n: '国际化',
     dataCenter: '数据中心',
-    user: '用户管理'
+    user: '用户管理',
+    role: '角色管理',
+    menu: '菜单管理'
   },
   navbar: {
     logOut: '退出登录',
@@ -149,5 +151,15 @@ export default {
     close: '关闭',
     closeOthers: '关闭其它',
     closeAll: '关闭所有'
+  },
+  warning: {
+    tips: '提示',
+    text: '此操作将永久删除该数据, 是否继续?',
+    success: '删除成功',
+    fault: '已取消删除'
+  },
+  constant: {
+    enabled: '可用',
+    disabled: '不可用'
   }
 }
