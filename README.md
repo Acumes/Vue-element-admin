@@ -31,6 +31,18 @@
 <p>
   <img  src="https://github.com/Acumes/img/blob/master/8_20/now_demo.png">
 </p>
+
+- 用户
+
+<p>
+  <img  src="https://github.com/Acumes/img/blob/master/8_20/user.png">
+</p>
+
+- 角色
+
+<p>
+  <img  src="https://github.com/Acumes/img/blob/master/8_20/role.png">
+</p>
 ## 功能
 ```
 - 登录 / 注销（与后台联调成功）
