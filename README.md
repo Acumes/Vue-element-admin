@@ -1,5 +1,5 @@
 
-本代码改自：https://github.com/Acumes/Vue-element-admin
+本代码改自：https://github.com/PanJiaChen/vue-element-admin
 ## 简介
 - [Gitee](https://panjiachen.gitee.io/vue-element-admin/) 国内用户可访问该地址在线预览（原项目Demo）
 
@@ -19,7 +19,12 @@
  - [手摸手，带你用 vue 撸后台 系列四(vueAdmin 一个极简的后台基础模板)](https://juejin.im/post/595b4d776fb9a06bbe7dba56)
  - [手摸手，带你封装一个 vue component](https://segmentfault.com/a/1190000009090836)
  - [手摸手，带你优雅的使用 icon](https://juejin.im/post/59bb864b5188257e7a427c09)
-
+ 
+## 项目截图
+<p></p>
+<p align="center">
+  <img width="320" src="https://github.com/Acumes/img/blob/master/8_20/yuan_demo.png">
+</p>
 ## 功能
 ```
 - 登录 / 注销（与后台联调成功）
