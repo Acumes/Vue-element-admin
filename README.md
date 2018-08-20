@@ -21,9 +21,9 @@
  - [手摸手，带你优雅的使用 icon](https://juejin.im/post/59bb864b5188257e7a427c09)
  
 ## 项目截图
-<p>原Demo截图</p>
+-原Demo截图
 <p>
-  <img width="320" src="https://github.com/Acumes/img/blob/master/8_20/yuan_demo.png">
+  <img width="520" src="https://github.com/Acumes/img/blob/master/8_20/yuan_demo.png">
 </p>
 ## 功能
 ```
