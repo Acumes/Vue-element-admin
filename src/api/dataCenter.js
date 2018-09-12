@@ -72,7 +72,30 @@ export function delRole(id) {
 
 export function getMenuTree() {
   return request({
-    url: '/roles/getRoles',
-    method: 'post'
+    url: '/menu/tree',
+    method: 'get'
   })
 }
+
+export function addMenu(data) {
+  return request({
+    url: '/menu',
+    method: 'post',
+    data
+  })
+}
+
+export function updateMenu(data) {
+  return request({
+    url: '/menu/tree',
+    method: 'put',
+    data
+  })
+}
+export function delMenu(id) {
+  return request({
+    url: '/menu/' + id,
+    method: 'delete'
+  })
+}
+

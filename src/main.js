@@ -19,6 +19,7 @@ import { getTime } from './utils/time'
 // import './mock' // simulation data
 
 import * as filters from './filters' // global filters
+import './assets/third-party/ali_icon/iconfont.css'
 
 Vue.use(Element, {
   size: 'medium', // set element-ui default size
