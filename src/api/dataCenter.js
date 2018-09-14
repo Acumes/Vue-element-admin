@@ -70,10 +70,11 @@ export function delRole(id) {
   })
 }
 
-export function getMenuTree() {
+export function getMenuTree(data) {
   return request({
     url: '/menu/tree',
-    method: 'get'
+    method: 'post',
+    data
   })
 }
 
@@ -87,11 +88,12 @@ export function addMenu(data) {
 
 export function updateMenu(data) {
   return request({
-    url: '/menu/tree',
+    url: '/menu',
     method: 'put',
     data
   })
 }
+
 export function delMenu(id) {
   return request({
     url: '/menu/' + id,
@@ -99,3 +101,16 @@ export function delMenu(id) {
   })
 }
 
+export function getCountChild(id) {
+  return request({
+    url: '/menu/isChild/' + id,
+    method: 'get'
+  })
+}
+
+export function getRoleMenuIds(id) {
+  return request({
+    url: '/roles/menu/' + id,
+    method: 'get'
+  })
+}

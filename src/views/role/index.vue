@@ -52,11 +52,14 @@
           <span v-if="scope.row.enabled === '2'">{{$t('role.disabled')}}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" :label="$t('table.actions')" width="200" class-name="small-padding fixed-width">
+      <el-table-column align="center" :label="$t('table.actions')" width="240" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">{{$t('table.edit')}}</el-button>
           <el-button  size="mini" type="danger"
                      @click="handleDelete(scope.row,'deleted')">{{$t('table.delete')}}
+          </el-button>
+          <el-button  size="mini" type="info"
+                     @click="handleAuthorization(scope.row)">授权
           </el-button>
         </template>
       </el-table-column>
@@ -88,12 +91,23 @@
         <el-button v-else type="primary" @click="updateData">{{$t('user.confirm')}}</el-button>
       </div>
     </el-dialog>
-
+    <el-dialog :title="$t('user.create')"
+               :visible.sync="dialogFormTreeVisible">
+      <el-tree :data="menuTree" node-key="id" show-checkbox default-expand-all :expand-on-click-node="false" ref="tree">
+              <span  class="custom-tree-node" slot-scope="{ node, data }">
+                <span  @click="menuInfo(data)" @dblclick="expandedIsShow(node,data)"> <i :class="node.icon"></i><span style="padding-left: 5px;">{{ node.label }}</span></span>
+              </span>
+      </el-tree>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormTreeVisible = false">{{$t('user.cancel')}}</el-button>
+        <el-button type="primary" @click="updatePermession">{{$t('user.confirm')}}</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-  import { getRoles, addRole, updateRole, delRole } from '@/api/dataCenter'
+  import { getRoles, addRole, updateRole, delRole, getMenuTree, getRoleMenuIds } from '@/api/dataCenter'
   import waves from '@/directive/waves' // 水波纹指令
   import { status } from '@/utils/constant'
 
@@ -111,6 +125,7 @@
           pageNo: 1,
           pageSize: 10
         },
+        menuTree: null,
         temp: {
           id: '',
           name: '',
@@ -118,6 +133,8 @@
         },
         dialogFormVisible: false,
         dialogStatus: '',
+        dialogFormTreeVisible: false,
+        roleId: '',
         status,
         rules: {
           name: [{ required: true, message: this.$t('role.validation.requiredName'), trigger: 'blur' }],
@@ -192,6 +209,27 @@
           this.$refs['dataForm'].clearValidate()
         })
       },
+      getTree() {
+        const that = this
+        const menu = {
+          isShow: 1
+        }
+        getMenuTree(menu).then(response => {
+          this.menuTree = response.data
+          that.recursion(this.menuTree)
+          getRoleMenuIds(that.roleId).then(res => {
+            that.$refs.tree.setCheckedKeys(res.data)
+          }).catch(oError => {})
+        }).catch(oError => {})
+      },
+      recursion(data) {
+        data.forEach(item => {
+          item.label = item.name
+          if (item.children) {
+            this.recursion(item.children)
+          }
+        })
+      },
       updateData() {
         this.$refs['dataForm'].validate((valid) => {
           if (valid) {
@@ -227,6 +265,23 @@
             message: that.$t('warning.fault')
           })
         })
+      },
+      expandedIsShow(data) {
+        data.expanded = !data.expanded
+      },
+      handleAuthorization(row) {
+        this.dialogFormTreeVisible = true
+        this.roleId = row.id
+        this.getTree()
+        console.log(row)
+      },
+      updatePermession() {
+        // 获取选中的节点
+        console.log(this.$refs.tree.getCheckedKeys())
+        // that.$refs.tree.setCheckedKeys(res.data)
+        // 获取半选节点
+        console.log(this.$refs.tree.getHalfCheckedKeys())
+        this.$refs.tree.setHalfCheckedKeys(['71'])
       }
     }
   }

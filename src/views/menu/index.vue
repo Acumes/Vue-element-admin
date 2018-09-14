@@ -3,8 +3,8 @@
     <el-row>
       <p class="text-content">
         <el-button type="success" icon="el-icon-plus" @click="add">新增</el-button>
-        <el-button type="warning" icon="el-icon-edit">编辑</el-button>
-        <el-button type="danger" icon="el-icon-delete">删除</el-button>
+        <el-button type="warning" icon="el-icon-edit" @click="edit">编辑</el-button>
+        <el-button type="danger" icon="el-icon-delete" @click="deleteMenu">删除</el-button>
       </p>
     </el-row>
     <el-row>
@@ -13,7 +13,7 @@
           <el-row>
             <el-tree :data="list" node-key="id" default-expand-all :expand-on-click-node="false">
               <span  class="custom-tree-node" slot-scope="{ node, data }">
-                <span  @click="menuInfo(data)" @dblclick="expandedIsShow(node,data)"> <i :class="node.icon"></i>{{ node.label }}</span>
+                <span  @click="menuInfo(data)" @dblclick="expandedIsShow(node,data)"> <i :class="node.icon"></i><span style="padding-left: 5px;">{{ node.label }}</span></span>
               </span>
             </el-tree>
           </el-row>
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-  import { getMenuTree } from '@/api/dataCenter'
+  import { getMenuTree, addMenu, updateMenu, delMenu, getCountChild } from '@/api/dataCenter'
 
   export default {
     name: 'roles',
@@ -68,7 +68,8 @@
           permission: '',
           icon: '',
           isShow: false,
-          id: ''
+          id: '',
+          parentId: ''
         },
         parentId: '',
         parentName: '',
@@ -105,32 +106,120 @@
       add() {
         this.isDisabled = false
         this.isAdd = true
+        this.resetData()
+      },
+      edit() {
+        if (this.parentId === '') {
+          this.$alert('请选择要修改的菜单', '提示', {
+            confirmButtonText: '确定'
+          })
+          return
+        }
+        this.isAdd = false
+        this.isDisabled = false
+      },
+      menuInfo(data) {
+        this.isAdd = false
+        this.parentId = data.id
+        this.parentName = data.name
+        this.form = this.$cloneObj(data)
+        if (data.isShow === '1') {
+          this.form.isShow = true
+        } else {
+          this.form.isShow = false
+        }
+      },
+      onSubmit() {
+        console.log(this.parentId)
+        if (this.isAdd) {
+          this.form.parentId = this.parentId
+          addMenu(this.form).then(res => {
+            this.menuInfo(this.form)
+            this.isDisabled = true
+            this.getTree()
+          }).catch(oError => {
+            console.log(oError)
+          })
+        } else {
+          updateMenu(this.form).then(res => {
+            if (this.form.isShow) {
+              this.form.isShow = '1'
+            } else {
+              this.form.isShow = '0'
+            }
+            this.menuInfo(this.form)
+            this.isDisabled = true
+            this.getTree()
+          }).catch(oError => {
+            console.log(oError)
+          })
+        }
+      },
+      deleteMenu() {
+        if (this.parentId === '') {
+          this.$alert('请选择要删除的菜单', '提示', {
+            confirmButtonText: '确定'
+          })
+          return
+        }
+        this.$confirm('确定要删除（' + this.parentName + '）菜单吗？', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          // 检查是否有子菜单。
+          getCountChild(this.parentId).then(res => {
+            if (res.data > 0) {
+              this.$confirm('（' + this.parentName + '）还有子菜单，该删除操作会级联删除子菜单，确定删除吗？', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+              }).then(() => {
+                this.delMenuMethod()
+              }).catch(oError => {
+                this.$message({
+                  type: 'info',
+                  message: '已取消删除'
+                })
+              })
+            } else {
+              this.delMenuMethod()
+            }
+          }).catch(oError => {})
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })
+        })
+      },
+      expandedIsShow(data) {
+        data.expanded = !data.expanded
+      },
+      resetData() {
         this.form = {
           name: '',
           remarks: '',
           permission: '',
           icon: '',
           isShow: false,
-          id: ''
+          id: '',
+          parentId: ''
         }
       },
-      edit() {
-        this.isAdd = false
-      },
-      menuInfo(data) {
-        this.isAdd = false
-        this.parentId = data.id
-        this.parentName = data.name
-        this.form = data
-        if (data.isShow === '1') {
-          this.form.isShow = true
-        } else {
-          this.form.isShow = false
-        }
-        debugger
-      },
-      onSubmit() {
-        console.log(this.parentId)
+      delMenuMethod() {
+        delMenu(this.parentId).then(res => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          })
+          this.isDisabled = true
+          this.isAdd = false
+          this.resetData()
+          this.parentId = ''
+          this.parentName = ''
+          this.getTree()
+        }).catch(oError => {})
       }
     }
   }

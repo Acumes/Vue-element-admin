@@ -86,6 +86,15 @@ export const asyncRouterMap = [
         icon: 'menu',
         roles: ['admin'] // or you can only set roles in sub nav
       }
+    }, {
+      path: 'druid',
+      component: () => import('@/views/menu/'),
+      name: 'druid',
+      meta: {
+        title: 'druid',
+        icon: 'druid',
+        roles: ['admin'] // or you can only set roles in sub nav
+      }
     }]
   },
 

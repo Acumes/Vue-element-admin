@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { MessageBox } from 'element-ui'
+import { Message, MessageBox } from 'element-ui'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
 
@@ -60,7 +60,6 @@ service.interceptors.response.use(
   //   }
   // },
   error => {
-    debugger
     console.log('err' + error) // for debug
     if (error.response && error.response.status) {
       switch (error.response.status) {
@@ -79,6 +78,12 @@ service.interceptors.response.use(
           })
           break
       }
+    } else {
+      Message({
+        message: '请求错误',
+        type: 'error',
+        duration: 5 * 1000
+      })
     }
     // return Promise.reject(error)
   })
