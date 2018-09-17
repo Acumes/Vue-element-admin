@@ -94,7 +94,7 @@ export const asyncRouterMap = [
     alwaysShow: true, // will always show the root menu
     meta: {
       title: 'monitor',
-      icon: 'dataCenter',
+      icon: 'jiankongzhongxin',
       permission: 'sys:monitor'
     },
     children: [{
@@ -103,7 +103,7 @@ export const asyncRouterMap = [
       name: 'druid',
       meta: {
         title: 'druid',
-        icon: 'druid',
+        icon: 'jiankong',
         permission: 'sys:monitor:druid'
       }
     }]
@@ -115,7 +115,7 @@ export const asyncRouterMap = [
     alwaysShow: true, // will always show the root menu
     meta: {
       title: 'doc',
-      icon: 'dataCenter',
+      icon: 'wendangzhongxin',
       permission: 'sys:doc'
     },
     children: [{
@@ -124,7 +124,7 @@ export const asyncRouterMap = [
       name: 'swagger',
       meta: {
         title: 'swagger',
-        icon: 'dataCenter',
+        icon: 'wendang',
         permission: 'sys:doc:swagger'
       }
     }]
