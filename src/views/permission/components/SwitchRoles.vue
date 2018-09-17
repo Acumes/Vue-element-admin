@@ -13,7 +13,7 @@
 export default {
   computed: {
     roles() {
-      return this.$store.getters.roles
+      return this.$store.getters.permissions
     },
     switchRoles: {
       get() {

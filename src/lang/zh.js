@@ -61,10 +61,14 @@ export default {
     theme: '换肤',
     clipboardDemo: 'Clipboard',
     i18n: '国际化',
-    dataCenter: '数据中心',
+    dataCenter: '系统管理',
     user: '用户管理',
     role: '角色管理',
-    menu: '菜单管理'
+    menu: '菜单管理',
+    monitor: '监控管理',
+    druid: 'SQL监控',
+    doc: '文档管理',
+    swagger: 'API文档'
   },
   navbar: {
     logOut: '退出登录',
@@ -79,7 +83,8 @@ export default {
     username: '请输入用户名',
     password: '请输入密码',
     usernameTips: '请输入正确的用户名',
-    passwordTips: '密码不能少于5位数'
+    passwordTips: '密码不能少于5位数',
+    usernameOrPasswordError: '用户名或者密码错误'
   },
   documentation: {
     documentation: '文档',

@@ -107,7 +107,7 @@
 </template>
 
 <script>
-  import { getRoles, addRole, updateRole, delRole, getMenuTree, getRoleMenuIds } from '@/api/dataCenter'
+  import { getRoles, addRole, updateRole, delRole, getMenuTree, getRoleMenuIds, authorization } from '@/api/dataCenter'
   import waves from '@/directive/waves' // 水波纹指令
   import { status } from '@/utils/constant'
 
@@ -157,6 +157,9 @@
           setTimeout(() => {
             this.listLoading = false
           }, 1.5 * 1000)
+        }).catch(oError => {
+          debugger
+          console.log(oError)
         })
       },
       handleFilter() {
@@ -276,12 +279,23 @@
         console.log(row)
       },
       updatePermession() {
-        // 获取选中的节点
-        console.log(this.$refs.tree.getCheckedKeys())
-        // that.$refs.tree.setCheckedKeys(res.data)
-        // 获取半选节点
-        console.log(this.$refs.tree.getHalfCheckedKeys())
-        this.$refs.tree.setHalfCheckedKeys(['71'])
+        const that = this
+        const menu = {
+          checkIds: this.$refs.tree.getCheckedKeys(),
+          noCheckIds: this.$refs.tree.getHalfCheckedKeys()
+        }
+        authorization(this.roleId, menu).then(res => {
+          this.dialogFormTreeVisible = false
+          that.$message({
+            type: 'success',
+            message: that.$t('warning.success')
+          })
+        }).catch(oError => {
+          that.$message({
+            type: 'error',
+            message: oError
+          })
+        })
       }
     }
   }

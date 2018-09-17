@@ -9,7 +9,8 @@ export default {
       enable: 'Status',
       remarks: 'Remarks',
       phone: 'Phone',
-      password: 'Password'
+      password: 'Password',
+      role: 'Role'
     },
     enabled: 'enabled',
     disabled: 'disabled',

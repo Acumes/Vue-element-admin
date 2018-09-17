@@ -114,3 +114,11 @@ export function getRoleMenuIds(id) {
     method: 'get'
   })
 }
+
+export function authorization(id, data) {
+  return request({
+    url: '/roles/authorization/' + id,
+    method: 'post',
+    data
+  })
+}

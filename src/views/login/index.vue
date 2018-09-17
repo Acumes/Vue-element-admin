@@ -34,7 +34,6 @@
 </template>
 
 <script>
-import { isvalidUsername } from '@/utils/validate'
 import LangSelect from '@/components/LangSelect'
 import SocialSign from './socialsignin'
 
@@ -42,13 +41,6 @@ export default {
   components: { LangSelect, SocialSign },
   name: 'login',
   data() {
-    const validateUsername = (rule, value, callback) => {
-      if (!isvalidUsername(value)) {
-        callback(new Error(this.$t('login.usernameTips')))
-      } else {
-        callback()
-      }
-    }
     const validatePassword = (rule, value, callback) => {
       if (value.length < 5) {
         callback(new Error(this.$t('login.passwordTips')))
@@ -62,7 +54,7 @@ export default {
         password: 'admin'
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
+        username: [{ required: true, trigger: 'blur', message: this.$t('login.username') }],
         password: [{ required: true, trigger: 'blur', validator: validatePassword }]
       },
       passwordType: 'password',
@@ -79,6 +71,7 @@ export default {
     },
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
+        const that = this
         if (valid) {
           this.loading = true
           this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
@@ -86,6 +79,11 @@ export default {
             this.$router.push({ path: '/' })
           }).catch(() => {
             this.loading = false
+            that.$message({
+              message: that.$t('login.usernameOrPasswordError'),
+              type: 'error',
+              duration: 5 * 1000
+            })
           })
         } else {
           console.log('error submit!!')

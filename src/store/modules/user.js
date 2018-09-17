@@ -10,7 +10,7 @@ const user = {
     name: '',
     avatar: '',
     introduction: '',
-    roles: [],
+    permissions: [],
     setting: {
       articlePlatform: []
     }
@@ -38,8 +38,8 @@ const user = {
     SET_AVATAR: (state, avatar) => {
       state.avatar = avatar
     },
-    SET_ROLES: (state, roles) => {
-      state.roles = roles
+    SET_PERMISSIONS: (state, permissions) => {
+      state.permissions = permissions
     }
   },
 
@@ -67,11 +67,11 @@ const user = {
             reject('error')
           }
           const data = response.data
-          const roles = ['admin']
-          if (roles && roles.length > 0) { // 验证返回的roles是否是一个非空数组
-            commit('SET_ROLES', roles)
+          const permissions = data.permissions
+          if (permissions && permissions.length > 0) {
+            commit('SET_PERMISSIONS', permissions)
           } else {
-            reject('getInfo: roles must be a non-null array !')
+            reject('getInfo: permissions must be a non-null array !')
           }
 
           data.avatar = ''
@@ -129,7 +129,7 @@ const user = {
         setToken(role)
         getUserInfo(role).then(response => {
           const data = response.data
-          commit('SET_ROLES', data.roles)
+          commit('SET_PERMISSIONS', data.permissions)
           commit('SET_NAME', data.name)
           commit('SET_AVATAR', data.avatar)
           commit('SET_INTRODUCTION', data.introduction)

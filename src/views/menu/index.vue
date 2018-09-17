@@ -2,9 +2,9 @@
   <div class="app-container">
     <el-row>
       <p class="text-content">
-        <el-button type="success" icon="el-icon-plus" @click="add">新增</el-button>
-        <el-button type="warning" icon="el-icon-edit" @click="edit">编辑</el-button>
-        <el-button type="danger" icon="el-icon-delete" @click="deleteMenu">删除</el-button>
+        <el-button v-if="$store.getters.permissions.includes('sys:menu:add')" type="success" icon="el-icon-plus" @click="add">新增</el-button>
+        <el-button v-if="$store.getters.permissions.includes('sys:menu:edit')" type="warning" icon="el-icon-edit" @click="edit">编辑</el-button>
+        <el-button v-if="$store.getters.permissions.includes('sys:menu:delete')" type="danger" icon="el-icon-delete" @click="deleteMenu">删除</el-button>
       </p>
     </el-row>
     <el-row>
@@ -134,6 +134,7 @@
         if (this.isAdd) {
           this.form.parentId = this.parentId
           addMenu(this.form).then(res => {
+            this.form.id = res.data
             this.menuInfo(this.form)
             this.isDisabled = true
             this.getTree()

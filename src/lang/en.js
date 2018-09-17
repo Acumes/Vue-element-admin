@@ -61,10 +61,14 @@ export default {
     theme: 'Theme',
     clipboardDemo: 'Clipboard',
     i18n: 'I18n',
-    dataCenter: 'Data Center',
+    dataCenter: 'System Manager',
     user: 'User Manager',
     role: 'Role Manager',
-    menu: 'Menu Manager'
+    menu: 'Menu Manager',
+    monitor: 'Monitor Manager',
+    druid: 'SQL Monitor',
+    doc: 'Doc Manager',
+    swagger: 'Api Doc'
   },
   navbar: {
     logOut: 'Log Out',
@@ -79,7 +83,8 @@ export default {
     username: 'Please enter username',
     password: 'Please enter password',
     usernameTips: 'Please enter the correct user name',
-    passwordTips: 'The password can not be less than 5 digits'
+    passwordTips: 'The password can not be less than 5 digits',
+    usernameOrPasswordError: 'The username or password is error'
   },
   documentation: {
     documentation: 'Documentation',

@@ -100,6 +100,16 @@
         <el-form-item :label="$t('user.table.email')" prop="email">
           <el-input v-model="temp.email"></el-input>
         </el-form-item>
+        <el-form-item :label="$t('user.table.role')" prop="role">
+          <el-select v-model="temp.role" multiple placeholder="请选择" style="width: 100%">
+            <el-option
+              v-for="item in roles"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </el-form-item>
         <el-form-item :label="$t('user.table.remarks')">
           <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="Please input"
                     v-model="temp.remarks">
@@ -117,7 +127,7 @@
 </template>
 
 <script>
-  import { getUserList, addUser, updateUser, checkUser, delUser } from '@/api/dataCenter'
+  import { getUserList, addUser, updateUser, checkUser, delUser, getRoles } from '@/api/dataCenter'
   import waves from '@/directive/waves' // 水波纹指令
   import { status } from '@/utils/constant'
 
@@ -150,6 +160,7 @@
         list: null,
         total: null,
         listLoading: true,
+        roles: null,
         listQuery: {
           pageNo: 1,
           pageSize: 10
@@ -162,7 +173,8 @@
           email: '',
           mobile: '',
           phone: '',
-          loginName: ''
+          loginName: '',
+          role: []
         },
         dialogFormVisible: false,
         dialogStatus: '',
@@ -194,6 +206,22 @@
           }, 1.5 * 1000)
         })
       },
+      getRoleList() {
+        const request = {
+          page: 0
+        }
+        getRoles(request).then(res => {
+          this.roles = res.data.roles
+          if (this.roles) {
+            this.roles.forEach(item => {
+              item.label = item.name
+              item.value = item.id
+            })
+          }
+        }).catch(oError => {
+          console.log(oError)
+        })
+      },
       handleFilter() {
         this.listQuery.pageNo = 1
         this.getUserList()
@@ -214,11 +242,13 @@
           name: '',
           email: '',
           phone: '',
-          mobile: ''
+          mobile: '',
+          role: []
         }
       },
       handleCreate() {
         this.resetTemp()
+        this.getRoleList()
         this.dialogStatus = 'create'
         this.dialogFormVisible = true
         this.$nextTick(() => {
@@ -240,10 +270,26 @@
         })
       },
       handleUpdate(row) {
-        this.temp = Object.assign({}, row) // copy obj
+        this.getRoleList()
+        const temp = Object.assign({}, row) // copy obj
+        let roleIds = []
+        if (temp.roles) {
+          roleIds = temp.roles.split(',')
+        }
+        this.temp = {
+          id: temp.id,
+          loginName: temp.loginName,
+          remarks: temp.remarks,
+          name: temp.name,
+          email: temp.email,
+          phone: temp.phone,
+          mobile: temp.mobile,
+          role: roleIds
+        }
         this.temp.isEditPassword = false
         this.dialogStatus = 'update'
         this.dialogFormVisible = true
+
         this.$nextTick(() => {
           this.$refs['dataForm'].clearValidate()
         })

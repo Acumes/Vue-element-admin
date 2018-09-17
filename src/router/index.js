@@ -57,7 +57,7 @@ export const asyncRouterMap = [
     meta: {
       title: 'dataCenter',
       icon: 'dataCenter',
-      roles: ['admin', 'editor'] // you can set roles in root nav
+      permission: 'sys:dashboard'
     },
     children: [{
       path: 'user',
@@ -66,7 +66,7 @@ export const asyncRouterMap = [
       meta: {
         title: 'user',
         icon: 'user',
-        roles: ['admin'] // or you can only set roles in sub nav
+        permission: 'sys:user'
       }
     }, {
       path: 'role',
@@ -75,7 +75,7 @@ export const asyncRouterMap = [
       meta: {
         title: 'role',
         icon: 'role',
-        roles: ['admin'] // or you can only set roles in sub nav
+        permission: 'sys:role'
       }
     }, {
       path: 'menu',
@@ -84,16 +84,48 @@ export const asyncRouterMap = [
       meta: {
         title: 'menu',
         icon: 'menu',
-        roles: ['admin'] // or you can only set roles in sub nav
+        permission: 'sys:menu'
       }
-    }, {
+    }]
+  },
+  {
+    path: '/monitor',
+    component: Layout,
+    alwaysShow: true, // will always show the root menu
+    meta: {
+      title: 'monitor',
+      icon: 'dataCenter',
+      permission: 'sys:monitor'
+    },
+    children: [{
       path: 'druid',
-      component: () => import('@/views/menu/'),
+      component: () => import('@/views/druid/'),
       name: 'druid',
       meta: {
         title: 'druid',
         icon: 'druid',
-        roles: ['admin'] // or you can only set roles in sub nav
+        permission: 'sys:monitor:druid'
+      }
+    }]
+  },
+
+  {
+    path: '/doc',
+    component: Layout,
+    alwaysShow: true, // will always show the root menu
+    meta: {
+      title: 'doc',
+      icon: 'dataCenter',
+      permission: 'sys:doc'
+    },
+    children: [{
+      path: 'swagger',
+      component: () => import('@/views/swagger/'),
+      name: 'swagger',
+      meta: {
+        title: 'swagger',
+        icon: 'dataCenter',
+        permission: 'sys:doc:swagger'
       }
     }]
   },

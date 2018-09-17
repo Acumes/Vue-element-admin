@@ -9,7 +9,8 @@ export default {
       enable: '状态',
       remarks: '备注',
       phone: '电话',
-      password: '密码'
+      password: '密码',
+      role: '角色'
     },
     enabled: '可用',
     disabled: '不可用',

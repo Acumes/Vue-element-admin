@@ -19,12 +19,12 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'roles'
+      'permissions'
     ])
   },
   created() {
     document.title = this.$t('route.' + this.$route.meta.title)
-    if (!this.roles.includes('admin')) {
+    if (!this.permissions.includes('admin')) {
       this.currentRole = 'editorDashboard'
     }
   }

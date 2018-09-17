@@ -13,9 +13,9 @@
 
       <lang-select class="international right-menu-item"></lang-select>
 
-      <el-tooltip effect="dark" :content="$t('navbar.theme')" placement="bottom">
-        <theme-picker class="theme-switch right-menu-item"></theme-picker>
-      </el-tooltip>
+      <!--<el-tooltip effect="dark" :content="$t('navbar.theme')" placement="bottom">-->
+        <!--<theme-picker class="theme-switch right-menu-item"></theme-picker>-->
+      <!--</el-tooltip>-->
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">

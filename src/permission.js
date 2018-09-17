@@ -14,6 +14,20 @@ function hasPermission(roles, permissionRoles) {
   return roles.some(role => permissionRoles.indexOf(role) >= 0)
 }
 
+function filterPermission(data, permissions) {
+  data.forEach(item => {
+    if (item.children) {
+      filterPermission(item.children, permissions)
+    }
+    if (item.path !== '*') {
+      item.meta.hidden = false
+      if (!permissions.includes(item.meta.permission)) {
+        item.meta.hidden = true
+      }
+    }
+  })
+}
+
 const whiteList = ['/login', '/authredirect']// no redirect whitelist
 
 router.beforeEach((to, from, next) => {
@@ -24,10 +38,11 @@ router.beforeEach((to, from, next) => {
       next({ path: '/' })
       NProgress.done() // if current page is dashboard will not trigger	afterEach hook, so manually handle it
     } else {
-      if (store.getters.roles.length === 0) { // 判断当前用户是否已拉取完user_info信息
+      if (store.getters.permissions.length === 0) { // 判断当前用户是否已拉取完user_info信息
         store.dispatch('GetUserInfo').then(res => { // 拉取user_info
-          const roles = ['editor', 'develop', 'admin'] // note: roles must be a array! such as: ['editor','develop']
-          store.dispatch('GenerateRoutes', { roles }).then(() => { // 根据roles权限生成可访问的路由表
+          store.dispatch('GenerateRoutes').then(() => { // 根据roles权限生成可访问的路由表
+            filterPermission(store.getters.addRouters, res.data.permissions)
+            console.log(store.getters.addRouters)
             router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
             next({ ...to, replace: true }) // hack方法 确保addRoutes已完成 ,set the replace: true so the navigation will not leave a history record
           })
@@ -39,7 +54,7 @@ router.beforeEach((to, from, next) => {
         })
       } else {
         // 没有动态改变权限的需求可直接next() 删除下方权限判断 ↓
-        if (hasPermission(store.getters.roles, to.meta.roles)) {
+        if (hasPermission(store.getters.permissions, to.meta.permission)) {
           next()//
         } else {
           next({ path: '/401', replace: true, query: { noGoBack: true }})
