@@ -9,6 +9,8 @@ import enUserLocale from './user/user_en'
 import zhUserLocale from './user/user_zh'
 import enRoleLocale from './role/role_en'
 import zhRoleLocale from './role/role_zh'
+import enTaskLocale from './task/task_en'
+import zhTaskLocale from './task/task_zh'
 
 Vue.use(VueI18n)
 
@@ -17,13 +19,15 @@ const messages = {
     ...enLocale,
     ...elementEnLocale,
     ...enUserLocale,
-    ...enRoleLocale
+    ...enRoleLocale,
+    ...enTaskLocale
   },
   zh: {
     ...zhLocale,
     ...elementZhLocale,
     ...zhUserLocale,
-    ...zhRoleLocale
+    ...zhRoleLocale,
+    ...zhTaskLocale
   }
 }
 

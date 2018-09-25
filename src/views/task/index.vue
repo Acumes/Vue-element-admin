@@ -56,10 +56,10 @@
         <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">{{$t('table.edit')}}</el-button>
           <el-button  size="mini" type="danger"
-                     @click="handleDelete(scope.row,'deleted')">{{$t('table.delete')}}
+                      @click="handleDelete(scope.row,'deleted')">{{$t('table.delete')}}
           </el-button>
           <el-button  size="mini" type="info"
-                     @click="handleAuthorization(scope.row)">授权
+                      @click="handleAuthorization(scope.row)">授权
           </el-button>
         </template>
       </el-table-column>
@@ -72,16 +72,25 @@
       </el-pagination>
     </div>
 
-    <el-dialog :title="dialogStatus === 'create' ? $t('user.create') : $t('user.update')"
+    <el-dialog :title="dialogStatus === 'create' ? $t('task.create') : $t('task.update')"
                :visible.sync="dialogFormVisible">
-      <el-form :rules="rules" ref="dataForm" :model="temp" label-position="right" label-width="120px"
+      <el-form :rules="rules" ref="dataForm" :model="temp" label-position="right" label-width="150px"
                style='width: 400px; margin-left:50px;'>
-        <el-form-item :label="$t('role.table.name')" prop="name">
-          <el-input v-model="temp.name" :placeholder="$t('role.placeholder.name')"></el-input>
+        <el-form-item :label="$t('task.table.name')" prop="beanName">
+          <el-input v-model="temp.beanName" :placeholder="$t('task.placeholder.name')"></el-input>
         </el-form-item>
-        <el-form-item :label="$t('role.table.remarks')" prop="remarks">
-          <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" :placeholder="$t('role.placeholder.remarks')"
-                    v-model="temp.remarks">
+        <el-form-item :label="$t('task.table.methodName')" prop="methodName">
+          <el-input v-model="temp.methodName" :placeholder="$t('task.placeholder.methodName')"></el-input>
+        </el-form-item>
+        <el-form-item :label="$t('task.table.params')" prop="params">
+          <el-input v-model="temp.params" :placeholder="$t('task.placeholder.params')"></el-input>
+        </el-form-item>
+        <el-form-item :label="$t('task.table.cronExpression')" prop="cronExpression">
+          <el-input v-model="temp.cronExpression" :placeholder="$t('task.placeholder.cronExpression')"></el-input>
+        </el-form-item>
+        <el-form-item :label="$t('task.table.remark')" prop="remark">
+          <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" :placeholder="$t('task.placeholder.remark')"
+                    v-model="temp.remark">
           </el-input>
         </el-form-item>
       </el-form>
@@ -91,28 +100,16 @@
         <el-button v-else type="primary" @click="updateData">{{$t('user.confirm')}}</el-button>
       </div>
     </el-dialog>
-    <el-dialog :title="$t('user.create')"
-               :visible.sync="dialogFormTreeVisible">
-      <el-tree :data="menuTree" node-key="id" show-checkbox default-expand-all :expand-on-click-node="false" ref="tree">
-              <span  class="custom-tree-node" slot-scope="{ node, data }">
-                <span  @click="menuInfo(data)" @dblclick="expandedIsShow(node,data)"> <i :class="node.icon"></i><span style="padding-left: 5px;">{{ node.label }}</span></span>
-              </span>
-      </el-tree>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormTreeVisible = false">{{$t('user.cancel')}}</el-button>
-        <el-button type="primary" @click="updatePermession">{{$t('user.confirm')}}</el-button>
-      </div>
-    </el-dialog>
   </div>
 </template>
 
 <script>
-  import { getRoles, addRole, updateRole, delRole, getMenuTree, getRoleMenuIds, authorization } from '@/api/dataCenter'
+  import { getSchedules, addSchedules, updateRole, delRole } from '@/api/dataCenter'
   import waves from '@/directive/waves' // 水波纹指令
   import { status } from '@/utils/constant'
 
   export default {
-    name: 'roles',
+    name: 'task',
     directives: {
       waves
     },
@@ -125,31 +122,34 @@
           pageNo: 1,
           pageSize: 10
         },
-        menuTree: null,
         temp: {
           id: '',
-          name: '',
-          remarks: ''
+          beanName: '',
+          methodName: '',
+          cronExpression: '',
+          params: '',
+          remark: ''
         },
         dialogFormVisible: false,
         dialogStatus: '',
-        dialogFormTreeVisible: false,
         roleId: '',
         status,
         rules: {
-          name: [{ required: true, message: this.$t('role.validation.requiredName'), trigger: 'blur' }],
-          remarks: [{ required: true, message: this.$t('role.validation.requiredRemarks'), trigger: 'blur' }]
+          beanName: [{ required: true, message: this.$t('task.validation.beanName'), trigger: 'blur' }],
+          params: [{ required: true, message: this.$t('task.validation.params'), trigger: 'blur' }],
+          methodName: [{ required: true, message: this.$t('task.validation.methodName'), trigger: 'blur' }],
+          cronExpression: [{ required: true, message: this.$t('task.validation.cronExpression'), trigger: 'blur' }]
         }
       }
     },
     created() {
       document.title = this.$t('route.' + this.$route.meta.title)
-      this.getRoleList()
+      this.getScheduleList()
     },
     methods: {
-      getRoleList() {
+      getScheduleList() {
         this.listLoading = true
-        getRoles(this.listQuery).then(response => {
+        getSchedules(this.listQuery).then(response => {
           this.list = response.data.roles
           this.total = response.data.total
 
@@ -164,21 +164,24 @@
       },
       handleFilter() {
         this.listQuery.pageNo = 1
-        this.getRoleList()
+        this.getScheduleList()
       },
       handleSizeChange(val) {
         this.listQuery.pageSize = val
-        this.getRoleList()
+        this.getScheduleList()
       },
       handleCurrentChange(val) {
         this.listQuery.pageNo = val
-        this.getRoleList()
+        this.getScheduleList()
       },
       resetTemp() {
         this.temp = {
           id: '',
-          remarks: '',
-          name: ''
+          beanName: '',
+          methodName: '',
+          cronExpression: '',
+          params: '',
+          remark: ''
         }
       },
       handleCreate() {
@@ -192,9 +195,9 @@
       createData() {
         this.$refs['dataForm'].validate((valid) => {
           if (valid) {
-            addRole(this.temp).then(response => {
+            addSchedules(this.temp).then(response => {
               this.dialogFormVisible = false
-              this.getRoleList()
+              this.getScheduleList()
             }).catch(oError => {
               console.log('d')
             })
@@ -212,34 +215,13 @@
           this.$refs['dataForm'].clearValidate()
         })
       },
-      getTree() {
-        const that = this
-        const menu = {
-          isShow: 1
-        }
-        getMenuTree(menu).then(response => {
-          this.menuTree = response.data
-          that.recursion(this.menuTree)
-          getRoleMenuIds(that.roleId).then(res => {
-            that.$refs.tree.setCheckedKeys(res.data)
-          }).catch(oError => {})
-        }).catch(oError => {})
-      },
-      recursion(data) {
-        data.forEach(item => {
-          item.label = item.name
-          if (item.children) {
-            this.recursion(item.children)
-          }
-        })
-      },
       updateData() {
         this.$refs['dataForm'].validate((valid) => {
           if (valid) {
             const tempData = Object.assign({}, this.temp)
             updateRole(tempData).then(response => {
               this.dialogFormVisible = false
-              this.getRoleList()
+              this.getScheduleList()
             }).catch(oError => {
               console.log(oError)
             })
@@ -258,7 +240,7 @@
               type: 'success',
               message: that.$t('warning.success')
             })
-            this.getRoleList()
+            this.getScheduleList()
           }).catch(oError => {
             console.log(oError)
           })
@@ -271,31 +253,6 @@
       },
       expandedIsShow(data) {
         data.expanded = !data.expanded
-      },
-      handleAuthorization(row) {
-        this.dialogFormTreeVisible = true
-        this.roleId = row.id
-        this.getTree()
-        console.log(row)
-      },
-      updatePermession() {
-        const that = this
-        const menu = {
-          checkIds: this.$refs.tree.getCheckedKeys(),
-          noCheckIds: this.$refs.tree.getHalfCheckedKeys()
-        }
-        authorization(this.roleId, menu).then(res => {
-          this.dialogFormTreeVisible = false
-          that.$message({
-            type: 'success',
-            message: that.$t('warning.success')
-          })
-        }).catch(oError => {
-          that.$message({
-            type: 'error',
-            message: oError
-          })
-        })
       }
     }
   }

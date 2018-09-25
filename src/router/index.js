@@ -37,7 +37,7 @@ export const constantRouterMap = [
       path: 'dashboard',
       component: () => import('@/views/dashboard/index'),
       name: 'dashboard',
-      meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
+      meta: { title: 'dashboard', icon: 'dashboard', noCache: true, permission: 'sys:dashboard' }
     }]
   }
 ]
@@ -57,7 +57,7 @@ export const asyncRouterMap = [
     meta: {
       title: 'dataCenter',
       icon: 'dataCenter',
-      permission: 'sys:dashboard'
+      permission: 'sys:datacenter'
     },
     children: [{
       path: 'user',
@@ -85,6 +85,15 @@ export const asyncRouterMap = [
         title: 'menu',
         icon: 'menu',
         permission: 'sys:menu'
+      }
+    }, {
+      path: 'task',
+      component: () => import('@/views/task/'),
+      name: 'task',
+      meta: {
+        title: 'task',
+        icon: 'task',
+        permission: 'sys:task'
       }
     }]
   },

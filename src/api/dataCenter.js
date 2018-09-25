@@ -122,3 +122,19 @@ export function authorization(id, data) {
     data
   })
 }
+
+export function getSchedules(data) {
+  return request({
+    url: '/schedule/getSchedules',
+    method: 'post',
+    data
+  })
+}
+
+export function addSchedules(data) {
+  return request({
+    url: '/schedule/',
+    method: 'post',
+    data
+  })
+}

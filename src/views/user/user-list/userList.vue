@@ -79,7 +79,7 @@
 
     <el-dialog :title="dialogStatus === 'create' ? $t('user.create') : $t('user.update')"
                :visible.sync="dialogFormVisible">
-      <el-form :rules="rules" ref="dataForm" :model="temp" label-position="right" label-width="70px"
+      <el-form :rules="rules" ref="dataForm" :model="temp" label-position="right" label-width="120px"
                style='width: 400px; margin-left:50px;'>
         <el-form-item :label="$t('user.table.loginName')" prop="loginName">
           <el-input v-model="temp.loginName"></el-input>
@@ -204,6 +204,9 @@
           setTimeout(() => {
             this.listLoading = false
           }, 1.5 * 1000)
+        }).catch(oError => {
+          this.listLoading = false
+          console.log(oError)
         })
       },
       getRoleList() {

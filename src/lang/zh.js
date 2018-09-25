@@ -68,7 +68,8 @@ export default {
     monitor: '监控管理',
     druid: 'SQL监控',
     doc: '文档管理',
-    swagger: 'API文档'
+    swagger: 'API文档',
+    task: '定时任务'
   },
   navbar: {
     logOut: '退出登录',

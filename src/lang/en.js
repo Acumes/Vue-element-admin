@@ -68,7 +68,8 @@ export default {
     monitor: 'Monitor Manager',
     druid: 'SQL Monitor',
     doc: 'Doc Manager',
-    swagger: 'Api Doc'
+    swagger: 'Api Doc',
+    task: 'Timed task'
   },
   navbar: {
     logOut: 'Log Out',
