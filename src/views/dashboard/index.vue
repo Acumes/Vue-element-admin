@@ -24,9 +24,6 @@ export default {
   },
   created() {
     document.title = this.$t('route.' + this.$route.meta.title)
-    if (!this.permissions.includes('admin')) {
-      this.currentRole = 'editorDashboard'
-    }
   }
 }
 </script>

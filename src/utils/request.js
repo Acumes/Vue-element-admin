@@ -2,6 +2,7 @@ import axios from 'axios'
 import { Message, MessageBox } from 'element-ui'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
+import i18n from '@/lang'
 
 // create an axios instance
 const service = axios.create({
@@ -35,12 +36,14 @@ service.interceptors.response.use(
   response => {
     const res = response.data
     console.log(res)
-    // if (res.code !== 20000) {
+    // if (res.code === '30202') {
     //   Message({
-    //     message: res.message,
+    //     message: that.$t('route.dashboard') + 'sdsds',
     //     type: 'error',
     //     duration: 5 * 1000
     //   })
+    //   console.log('===========' + that.$t('route.dashboard'))
+    // }
     //   // 50008:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;
     //   if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
     //     // 请自行在引入 MessageBox
@@ -69,9 +72,9 @@ service.interceptors.response.use(
           error.message = '请求错误'
           break
         case 401:
-          MessageBox.confirm('你已被登出，可以取消继续留在该页面，或者重新登录', '确定登出', {
-            confirmButtonText: '重新登录',
-            cancelButtonText: '取消',
+          MessageBox.confirm(i18n.t('login.reLoggin'), i18n.t('login.determine'), {
+            confirmButtonText: i18n.t('login.reLoggedIn'),
+            cancelButtonText: i18n.t('table.cancel'),
             type: 'warning'
           }).then(() => {
             store.dispatch('FedLogOut').then(() => {

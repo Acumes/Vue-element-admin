@@ -85,7 +85,12 @@ export default {
     password: 'Please enter password',
     usernameTips: 'Please enter the correct user name',
     passwordTips: 'The password can not be less than 5 digits',
-    usernameOrPasswordError: 'The username or password is error'
+    usernameOrPasswordError: 'The username or password is error',
+    captchaCodeError: 'The captcha code is error',
+    captcha: 'Please enter captcha code',
+    reLoggin: 'You have been logged out, you can cancel the page or login again.',
+    determine: 'Go out',
+    reLoggedIn: 'Re Logged In'
   },
   documentation: {
     documentation: 'Documentation',

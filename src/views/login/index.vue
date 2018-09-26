@@ -27,6 +27,39 @@
         </span>
       </el-form-item>
 
+      <el-form-item prop="captcha">
+        <!--<span class="svg-container svg-container_login">-->
+        <!--<svg-icon icon-class="captcha" />-->
+        <!--</span>-->
+        <!--<el-input name="captcha" type="text" v-model="loginForm.captcha" autoComplete="on" :placeholder="$t('login.captcha')"-->
+        <!--/>-->
+        <!--<el-row>-->
+          <!--<el-col :span="14">-->
+            <!--<el-input v-model="loginForm.captcha" placeholder="验证码" style="width: 100%;">-->
+            <!--</el-input>-->
+          <!--</el-col>-->
+          <!--<el-col :span="10">-->
+            <!--<div style="float: right;">-->
+              <!--<span>-->
+                <!--<img :src="captchaPath" @click="getCaptchaCode()" alt="" style="height: 35px;">-->
+              <!--</span>-->
+            <!--</div>-->
+          <!--</el-col>-->
+        <!--</el-row>-->
+        <el-row :gutter="20" style="height: 47px;">
+          <el-col :span="16">
+            <span class="svg-container">
+              <svg-icon icon-class="captcha" />
+            </span>
+            <el-input v-model="loginForm.captcha" placeholder="验证码" style="width: 87%;">
+            </el-input>
+          </el-col>
+          <el-col :span="8" class="login-captcha">
+            <img :src="captchaPath" @click="getCaptchaCode()" alt="" style="width: 126px;float: right;margin-top: 10px;margin-right: 5px;">
+          </el-col>
+        </el-row>
+      </el-form-item>
+
       <el-button type="primary" style="width:100%;margin-bottom:30px;" :loading="loading" @click.native.prevent="handleLogin">{{$t('login.logIn')}}</el-button>
     </el-form>
 
@@ -34,6 +67,7 @@
 </template>
 
 <script>
+import { getCaptcha } from '@/api/login'
 import LangSelect from '@/components/LangSelect'
 import SocialSign from './socialsignin'
 
@@ -51,11 +85,14 @@ export default {
     return {
       loginForm: {
         username: 'admin',
-        password: 'admin'
+        password: 'admin',
+        captcha: ''
       },
+      captchaPath: '',
       loginRules: {
         username: [{ required: true, trigger: 'blur', message: this.$t('login.username') }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        password: [{ required: true, trigger: 'blur', validator: validatePassword }],
+        captcha: [{ required: true, trigger: 'blur', message: this.$t('login.captcha') }]
       },
       passwordType: 'password',
       loading: false
@@ -74,10 +111,10 @@ export default {
         const that = this
         if (valid) {
           this.loading = true
-          this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
+          this.$store.dispatch('LoginByUsername', this.loginForm).then(res => {
             this.loading = false
             this.$router.push({ path: '/' })
-          }).catch(() => {
+          }).catch(oError => {
             this.loading = false
             that.$message({
               message: that.$t('login.usernameOrPasswordError'),
@@ -90,6 +127,17 @@ export default {
           return false
         }
       })
+    },
+    getCaptchaCode() {
+      const that = this
+      // getCaptcha().then(response => new Buffer(response.data, 'binary').toString('base64'))
+      getCaptcha().then(response => 'data:image/png;base64,' + btoa(
+        new Uint8Array(response.data)
+          .reduce((data, byte) => data + String.fromCharCode(byte), '')
+      ))
+        .then(data => {
+          that.captchaPath = data
+        })
     },
     afterQRScan() {
       // const hash = window.location.hash.slice(1)
@@ -112,6 +160,7 @@ export default {
   },
   created() {
     // window.addEventListener('hashchange', this.afterQRScan)
+    this.getCaptchaCode()
   },
   destroyed() {
     // window.removeEventListener('hashchange', this.afterQRScan)
@@ -170,7 +219,13 @@ export default {
 $bg:#2d3a4b;
 $dark_gray:#889aa4;
 $light_gray:#eee;
-
+.svg-captchaPath {
+  padding: 6px 5px 6px 15px;
+  color: $dark_gray;
+  vertical-align: middle;
+  width: 120px;
+  display: inline-block;
+}
 .login-container {
   position: fixed;
   height: 100%;

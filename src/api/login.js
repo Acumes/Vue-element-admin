@@ -1,8 +1,8 @@
 import request from '@/utils/request'
 
-export function loginByUsername(username, password) {
+export function loginByUsername(username, password, captcha) {
   return request({
-    url: '/auth/token?username=' + username + '&password=' + password,
+    url: '/auth/token?username=' + username + '&password=' + password + '&captchaCode=' + captcha,
     method: 'post'
   })
 }
@@ -18,6 +18,14 @@ export function getUserInfo() {
   return request({
     url: '/users/getCurrentUser',
     method: 'get'
+  })
+}
+
+export function getCaptcha() {
+  return request({
+    url: '/auth/captcha',
+    method: 'get',
+    responseType: 'arraybuffer'
   })
 }
 

@@ -1,5 +1,7 @@
 import { loginByUsername, logout, getUserInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import i18n from '@/lang'
+import { Message } from 'element-ui'
 
 const user = {
   state: {
@@ -48,8 +50,17 @@ const user = {
     LoginByUsername({ commit }, userInfo) {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
-        loginByUsername(username, userInfo.password).then(response => {
+        loginByUsername(username, userInfo.password, userInfo.captcha).then(response => {
           const data = response.data.data
+          if (response.data.code === '30202') {
+            Message({
+              message: i18n.t('login.captchaCodeError'),
+              type: 'error',
+              duration: 5 * 1000
+            })
+            reject()
+            return
+          }
           commit('SET_TOKEN', data.access_token)
           setToken(data.access_token)
           resolve()

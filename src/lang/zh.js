@@ -85,7 +85,12 @@ export default {
     password: '请输入密码',
     usernameTips: '请输入正确的用户名',
     passwordTips: '密码不能少于5位数',
-    usernameOrPasswordError: '用户名或者密码错误'
+    usernameOrPasswordError: '用户名或者密码错误',
+    captchaCodeError: '验证码错误',
+    captcha: '请输入验证码',
+    reLoggin: '你已被登出，可以取消继续留在该页面，或者重新登录',
+    determine: '确定登出',
+    reLoggedIn: '重新登录'
   },
   documentation: {
     documentation: '文档',
