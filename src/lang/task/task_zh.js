@@ -9,8 +9,10 @@ export default {
       status: '状态',
       remark: '备注'
     },
-    enabled: '可用',
-    disabled: '不可用',
+    enabled: '已启用',
+    disabled: '已禁用',
+    enable: '启用',
+    disable: '禁用',
     confirm: '确定',
     cancel: '取消',
     create: '添加',

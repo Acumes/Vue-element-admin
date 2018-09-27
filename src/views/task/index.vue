@@ -26,30 +26,30 @@
         :label="$t('table.id')"
         width="50">
       </el-table-column>
-      <el-table-column align="center"  width="220px" :label="$t('role.table.name')">
+      <el-table-column align="center"  width="220px" :label="$t('task.table.name')">
         <template slot-scope="scope">
-          <span>{{scope.row.name}}</span>
+          <span>{{scope.row.beanName}}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" :label="$t('role.table.remarks')">
+      <el-table-column align="center" :label="$t('task.table.cronExpression')">
         <template slot-scope="scope">
-          <span>{{scope.row.remarks}}</span>
+          <span>{{scope.row.cronExpression}}</span>
         </template>
       </el-table-column>
-      <el-table-column width="160px" align="center" :label="$t('role.table.createUserName')">
+      <el-table-column width="160px" align="center" :label="$t('task.table.methodName')">
         <template slot-scope="scope">
-          <span>{{scope.row.createUserName}}</span>
+          <span>{{scope.row.methodName}}</span>
         </template>
       </el-table-column>
-      <el-table-column width="160px" align="center" :label="$t('role.table.createDate')">
+      <el-table-column width="160px" align="center" :label="$t('task.table.params')">
         <template slot-scope="scope">
-          <span>{{scope.row.createDate}}</span>
+          <span>{{scope.row.params}}</span>
         </template>
       </el-table-column>
-      <el-table-column width="100px" align="center" :label="$t('role.table.enable')">
+      <el-table-column width="100px" align="center" :label="$t('task.table.status')">
         <template slot-scope="scope">
-          <span v-if="scope.row.enabled === '1'">{{$t('role.enabled')}}</span>
-          <span v-if="scope.row.enabled === '2'">{{$t('role.disabled')}}</span>
+          <span v-if="scope.row.status === 0">{{$t('task.enabled')}}</span>
+          <span v-if="scope.row.status === 1">{{$t('task.disabled')}}</span>
         </template>
       </el-table-column>
       <el-table-column align="center" :label="$t('table.actions')" width="240" class-name="small-padding fixed-width">
@@ -59,7 +59,9 @@
                       @click="handleDelete(scope.row,'deleted')">{{$t('table.delete')}}
           </el-button>
           <el-button  size="mini" type="info"
-                      @click="handleAuthorization(scope.row)">授权
+                      @click="handleAuthorization(scope.row)">
+              <span v-if="scope.row.status === 0">{{$t('task.disable')}}</span>
+              <span v-if="scope.row.status === 1">{{$t('task.enable')}}</span>
           </el-button>
         </template>
       </el-table-column>
@@ -150,7 +152,7 @@
       getScheduleList() {
         this.listLoading = true
         getSchedules(this.listQuery).then(response => {
-          this.list = response.data.roles
+          this.list = response.data.schedules
           this.total = response.data.total
 
           // Just to simulate the time of the request

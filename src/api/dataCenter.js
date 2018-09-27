@@ -18,7 +18,7 @@ export function addUser(data) {
 
 export function updateUser(data) {
   return request({
-    url: '/users/' + data.id,
+    url: '/users',
     method: 'put',
     data
   })

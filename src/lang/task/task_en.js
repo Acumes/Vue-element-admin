@@ -11,6 +11,8 @@ export default {
     },
     enabled: 'enabled',
     disabled: 'disabled',
+    enable: 'enabled',
+    disable: 'disabled',
     confirm: 'Confirm',
     cancel: 'Cancel',
     create: 'Created',
