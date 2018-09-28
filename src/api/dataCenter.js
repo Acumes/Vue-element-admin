@@ -138,3 +138,10 @@ export function addSchedules(data) {
     data
   })
 }
+
+export function getUserLoginLog() {
+  return request({
+    url: '/users/loginLog',
+    method: 'get'
+  })
+}

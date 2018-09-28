@@ -73,6 +73,7 @@ const lineChartData = {
   }
 }
 
+import { getUserLoginLog } from '@/api/dataCenter'
 export default {
   name: 'dashboard-admin',
   components: {
@@ -88,13 +89,29 @@ export default {
   },
   data() {
     return {
-      lineChartData: lineChartData.newVisitis
+      lineChartData: lineChartData.newVisitis,
+      info: ''
     }
   },
   methods: {
     handleSetLineChartData(type) {
       this.lineChartData = lineChartData[type]
+    },
+    getUserLoginLogs() {
+      const that = this
+      getUserLoginLog().then(res => {
+        that.$message({
+          message: '上次登录: ' + res.data,
+          center: true,
+          dangerouslyUseHTMLString: true
+        })
+      }).catch(oError => {
+        console.log(oError)
+      })
     }
+  },
+  created() {
+    this.getUserLoginLogs()
   }
 }
 </script>

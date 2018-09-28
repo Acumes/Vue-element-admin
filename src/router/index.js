@@ -95,6 +95,15 @@ export const asyncRouterMap = [
         icon: 'task',
         permission: 'sys:task'
       }
+    }, {
+      path: 'tinymce',
+      component: () => import('@/views/components-demo/tinymce'),
+      name: 'tinymce',
+      meta: {
+        title: 'tinymce',
+        icon: 'tinymce',
+        permission: 'sys:tinymce'
+      }
     }]
   },
   {
