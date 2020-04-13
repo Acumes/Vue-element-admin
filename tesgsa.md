@@ -25,19 +25,17 @@ This wallet also has the characteristics of distributed, can generate wallet loc
 - 5.is well-tested and would be convenient to security audit
 - 6.Open source, dual licensing (under MIT and Apache 2)
 
-## Recommended Team
-- A small team with strong design and web development skills (please show evidence of this in your proposal)
-- Experience creating novel data visualizations and extracting metadata from a blockchain or a complex tech back-end (APIs may not exist to extract all the information the project might need)
-
 ## Detailed Requirements & Constraints
 
 ### Data to Display
-- The whole network dashboard of blockchain filecoin is displayed. Users can search blocks, accounts, messages and other information.<br>
-![image](https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply1909.png)
-- Users can quickly query each block information of filecoin;<br>
-![image](https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply1971.png)
-- User can query the details of the account;<br>
-![image](https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply2016.png)
+- -Users can create wallets on local clients, support secp256k1 and BLS, and can also use HD wallets with multiple addresses in mnemonic seed.<br>
+![image](https://upload.grandhelmsman.com/hlm/stage/image1.png)
+- The wallet does not need to pass through the network, and is encrypted locally. It can guarantee the storage and transfer security of assets by signature encryption technology. It can improve the security of users' assets by combining the backup anti loss mechanism such as mnemonic and keystore;<br>
+![image](https://upload.grandhelmsman.com/hlm/stage/image2.png)
+- Users can create many wallets or HD (Hierarchical Deterministic) signatures with one wallet. <br>
+![image](https://upload.grandhelmsman.com/hlm/stage/image3.png)
+- -Users can query the balance of wallet and details of each account through the node; <br>
+![image](https://upload.grandhelmsman.com/hlm/stage/image4.png)
 
 ## Milestones & Funding
 **Total Funding Amount:** 1300$<br>
