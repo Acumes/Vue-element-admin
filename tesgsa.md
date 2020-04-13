@@ -29,7 +29,7 @@ This wallet also has the characteristics of distributed, can generate wallet loc
 
 ### Data to Display
 - -Users can create wallets on local clients, support secp256k1 and BLS, and can also use HD wallets with multiple addresses in mnemonic seed.<br>
-<img src="https://upload.grandhelmsman.com/hlm/stage/image1.png" width="300" height="450" />
+<img src="https://upload.grandhelmsman.com/hlm/stage/image5.png" width="300" height="450" />
 
 
 ## Milestones & Funding
