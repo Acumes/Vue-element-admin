@@ -1,4 +1,4 @@
- # RFP Proposal: `Block Explorer
+ # RFP Proposal: `Block Explorer`
 
  **Name of Project:** Filecoin123 Block Explorer
  
@@ -48,3 +48,13 @@ At the same time, we will integrate our query API and provide it to the relevant
 - ZHAO Huayi: Product Manager
 - XU Zhiyong：WEB Engineer
 - YUE Manling : UI Designer
+## Recommended Team
+- [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
+- [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
+- [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
+<br>
+## Team Website
+@IPFS-grandhelmsman
+
+[http://www.grandhelmsman.com/cn/index.html](http://www.grandhelmsman.com/cn/index.html) 
+<br>
