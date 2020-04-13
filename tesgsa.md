@@ -36,3 +36,18 @@ At the same time, we will integrate our query API and provide it to the relevant
 ![image](https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply1971.png)
 - User can query the details of the account;<br>
 ![image](https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply2016.png)
+
+## Milestones & Funding
+**Total Funding Amount:** 1300$<br>
+|    TYPE   |ASCII                          |HTML
+|----------------|-------------------------------|-----------------------------|
+|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
+|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
+|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
+#### Staffing costs
+|    TYPE   |ASCII                          |HTML
+|----------------|-------------------------------|-----------------------------|
+|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
+|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
+|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
+<br>
