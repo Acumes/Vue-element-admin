@@ -29,7 +29,7 @@ This wallet also has the characteristics of distributed, can generate wallet loc
 
 ### Data to Display
 - -Users can create wallets on local clients, support secp256k1 and BLS, and can also use HD wallets with multiple addresses in mnemonic seed.<br>
-<img src="https://upload.grandhelmsman.com/hlm/stage/image1.png"  height="330" width="495"/>
+![image](https://upload.grandhelmsman.com/hlm/stage/image1.png)
 - The wallet does not need to pass through the network, and is encrypted locally. It can guarantee the storage and transfer security of assets by signature encryption technology. It can improve the security of users' assets by combining the backup anti loss mechanism such as mnemonic and keystore;<br>
 ![image](https://upload.grandhelmsman.com/hlm/stage/image2.png)
 - Users can create many wallets or HD (Hierarchical Deterministic) signatures with one wallet. <br>
