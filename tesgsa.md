@@ -26,3 +26,9 @@ At the same time, we will integrate our query API and provide it to the relevant
 ## Recommended Team
 - A small team with strong design and web development skills (please show evidence of this in your proposal)
 - Experience creating novel data visualizations and extracting metadata from a blockchain or a complex tech back-end (APIs may not exist to extract all the information the project might need)
+
+## Detailed Requirements & Constraints
+
+### Data to Display
+- The whole network dashboard of blockchain filecoin is displayed. Users can search blocks, accounts, messages and other information.
+
