@@ -42,5 +42,9 @@ At the same time, we will integrate our query API and provide it to the relevant
 | 栏目1 | 栏目2 |
 | ----- | ----- |
 | 内容1 | 内容2 |
-## Milestones & Funding
+## Recommended Team
 - ZHOU Shuyue : Filecoin Engineer and Researcher
+- Chen Zhijie : FullStack Developver
+- ZHAO Huayi: Product Manager
+- XU Zhiyong：WEB Engineer
+- YUE Manling : UI Designer
