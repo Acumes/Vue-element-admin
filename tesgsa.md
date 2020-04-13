@@ -42,6 +42,12 @@ This wallet also has the characteristics of distributed, can generate wallet loc
 | 栏目1 | 栏目2 | 栏目2 | 栏目2 | 栏目2 |
 | ----- | ----- | ----- |----- |----- |
 | 内容1 | 内容2 | 内容2 | 内容2 | 内容2 |
+## Acceptance Criteria
+**Milestone 1 involves product manager and UX, and early blockchain engineer and system architect participate in code designing**
+**Milestones 2 and 3, iOS front-end and Android front-end engineers plus system architects participate in code.**
+**Milestones 4 and 5 will involve front-end engineers and system architects.**
+**Filewallet’s goal is to keep normal using during the testnet and mainnet. We have done ERC20 wallet mobile devices. The milestone here includes the delay time caused by all possible upgrades on filecoin. We expect that the project will be completed within 14 weeks after the start of the project.**
+
 ## Recommended Team
 - ZHOU Shuyue : Filecoin Engineer and Researcher
 - Chen Zhijie : FullStack Developver
