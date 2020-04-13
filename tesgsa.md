@@ -51,3 +51,16 @@ At the same time, we will integrate our query API and provide it to the relevant
 |Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
 |Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
 <br>
+## Maintain plan
+- 1.Maintain the update of the interface with the Filecoin blockchain, including the whole network information query in the test phase;
+- 2.Upgrade the UI interface of the website;
+- 3.Continuously operate and maintain the server, continuously upgrade the server, and maintain the smooth access of users;
+- 4.Keep API interface and documents updated;
+<br>
+## Recommended Team
+- ZHOU Shuyue : Filecoin Engineer and Researcher
+- Chen Zhijie : FullStack Developver
+- ZHAO Huayi: Product Manager
+- XU Zhiyong：WEB Engineer
+- YUE Manling : UI Designer
+<br>
