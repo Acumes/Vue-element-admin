@@ -53,8 +53,5 @@ At the same time, we will integrate our query API and provide it to the relevant
 - [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
 - [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
 <br>
-## Recommended Team
-@IPFS-grandhelmsman
+## Team Website
 
-[http://www.grandhelmsman.com/cn/index.html](http://www.grandhelmsman.com/cn/index.html) 
-<br>
