@@ -43,30 +43,34 @@ This wallet also has the characteristics of distributed, can generate wallet loc
 | ----- | ----- | ----- |----- |----- |
 | 内容1 | 内容2 | 内容2 | 内容2 | 内容2 |
 ## Acceptance Criteria
-**Milestone 1 involves product manager and UX, and early blockchain engineer and system architect participate in code designing**
-**Milestones 2 and 3, iOS front-end and Android front-end engineers plus system architects participate in code.**
-**Milestones 4 and 5 will involve front-end engineers and system architects.**
+**Milestone 1 involves product manager and UX, and early blockchain engineer and system architect participate in code designing**<br>
+**Milestones 2 and 3, iOS front-end and Android front-end engineers plus system architects participate in code.**<br>
+**Milestones 4 and 5 will involve front-end engineers and system architects.**<br>
 **Filewallet’s goal is to keep normal using during the testnet and mainnet. We have done ERC20 wallet mobile devices. The milestone here includes the delay time caused by all possible upgrades on filecoin. We expect that the project will be completed within 14 weeks after the start of the project.**
 
+## Maintain plan
+1.Maintain the update of the interface with the Filecoin blockchain, including the whole network information query in the test phase;<br>
+2. Upgrade the UI interface of the website;<br>
+3. Continuously operate and maintain the server, continuously upgrade the server, and maintain the smooth access of users in testnet and mainnet.<br>
+4. Keep API interface and documents updated。<br>
+
 ## Recommended Team
-- ZHOU Shuyue : Filecoin Engineer and Researcher
-- Chen Zhijie : FullStack Developver
-- ZHAO Huayi: Product Manager
-- XU Zhiyong：WEB Engineer
-- YUE Manling : UI Designer
+- ZHOU Shuyue: Filecoin Engineer and Researcher
+- CHENG Gang: iOS Developer and System Architect
+- Weng YIpeng: Product Manager
+- XU Gongpu：Android Developer
+- YUE Manling: UI Designer
 ## Recommended Team
-- [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
-- [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
-- [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
+- [https://github.com/eggacher](https://github.com/eggacher) (personal)
+- [https://github.com/free1139](https://github.com/free1139) (personal)
+- [https://github.com/xugongpu](https://github.com/xugongpu) (personal)
+- [https://github.com/IPFS-grandhelmsman](https://github.com/IPFS-grandhelmsman) (team)
 ## Team Website
 @IPFS-grandhelmsman<br>
 http://www.grandhelmsman.com/cn/index.html<br>
 ## Relevant Experience
-Helmsman is a team dedicated to IPFs and Web3.0. We have been actively involved in the construction of distributed storage ecosystem, and as a miner, we actively participated in the storage function test of filecoin Test stage, invested a lot of equipment for testing, and saved a lot of effective data. At the same time, in the previous official first round trusted settings of filecoin, participate in the test of large storage performance. Our team has accumulated rich knowledge and experience (blockchain experience of Ethereum and Bitcoin) on the blockchain at the same time.
+Helmsman is a team dedicated to IPFs and Web3.0. We have been actively involved in the construction of distributed storage ecosystem, and as a miner, we actively participated in the storage function test of filecoin Test stage, invested a lot of equipment for testing, and saved a lot of effective data. At the same time, in the previous official first round trusted settings of filecoin, participate in the test of large storage performance.<br>
+We can use my own stable nodes to request data to wallets. We have developed digital crypto wallets. (ERC20). Our team has accumulated rich knowledge and experience (blockchain experience of Ethereum and Bitcoin) on the blockchain at the same time.
 ## Team code repositories
 [https://github.com/IPFS-grandhelmsman/sarah-client ](https://github.com/IPFS-grandhelmsman/sarah-client ) <br>
 [https://github.com/IPFS-grandhelmsman/sarah-console](https://github.com/IPFS-grandhelmsman/sarah-console) 
-## Additional Information
-In pursuit of excellence, we are committed to becoming the leading distributed decentralized storage device and technology service provider in the industry, improving the level of information storage, communication and propagation for all human beings.
-<br>
-We have professional operation and maintenance capabilities of large-scale hardware equipment, and many years of experience rooted in the blockchain industry. We believe that we can better complete the blockchain explorer.
