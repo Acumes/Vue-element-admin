@@ -51,9 +51,5 @@ At the same time, we will integrate our query API and provide it to the relevant
 |Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
 |Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
 <br>
-## Maintain plan 
+## Maintain plan<br>
 - ZHOU Shuyue : Filecoin Engineer and Researcher
-- Chen Zhijie : FullStack Developver
-- ZHAO Huayi: Product Manager
-- XU Zhiyong：WEB Engineer
-- YUE Manling : UI Designer
