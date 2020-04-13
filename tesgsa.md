@@ -39,9 +39,9 @@ At the same time, we will integrate our query API and provide it to the relevant
 
 ## Milestones & Funding
 **Total Funding Amount:** 1300$<br>
-| 栏目1 | 栏目2 |
-| ----- | ----- |
-| 内容1 | 内容2 |
+| 栏目1 | 栏目2 | 栏目2 | 栏目2 | 栏目2 |
+| ----- | ----- | ----- |----- |----- |
+| 内容1 | 内容2 | 内容2 | 内容2 | 内容2 |
 ## Recommended Team
 - ZHOU Shuyue : Filecoin Engineer and Researcher
 - Chen Zhijie : FullStack Developver
