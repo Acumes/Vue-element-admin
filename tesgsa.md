@@ -22,3 +22,8 @@ At the same time, we will integrate our query API and provide it to the relevant
 - 2.Well documented code base;
 - 3.Well document and API interface to user
 - 4.Open source repository for block browser code base, dual licensed under license-mit and license-apache
+
+## Recommended Team
+-  A small team with strong design and web development skills (please show evidence of this in your proposal)
+- -It can be accessed through HTTPS: / / website;
+-Experience creating novel data visualizations and extracting metadata from a blockchain or a complex tech back-end (APIs may not exist to extract all the information the project might need)
