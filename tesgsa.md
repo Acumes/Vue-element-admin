@@ -32,7 +32,7 @@ At the same time, we will integrate our query API and provide it to the relevant
 ### Data to Display
 - The whole network dashboard of blockchain filecoin is displayed. Users can search blocks, accounts, messages and other information.<br>
 ![image](https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply1909.png)
-- Users can quickly query each block information of filecoin;
+- Users can quickly query each block information of filecoin;<br>
 ![image](https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply1971.png)
-- User can query the details of the account;
+- User can query the details of the account;<br>
 ![image](https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply2016.png)
