@@ -1,27 +1,29 @@
- # RFP Proposal: `Block Explorer`
+ # RFP: `Filecoin wallet & tools`
 
- **Name of Project:** Filecoin123 Block Explorer
+ **Name of Project:**  FileWallet & Tools
  
  **RFP Category:** app-dev
  
   **Proposer:** @IPFS-grandhelmsman
+   
+  **Do you agree to open source all work you do on behalf of this RFP and dual-license under MIT and APACHE2 licenses?:** Yes
   
  # Project Description
-As a blockchain, filecoin is used by miners to record every blocksets, blocks and messages on the whole chain by a distributed way.<br>
-Miner pays attention to their own storage capacity and storage stability, and storage users care about the balance of storage accounts. Filecoin developers pay attention to the block efficiency and transaction rate on the filecoin blockchain.<br>
-Based on this, we will develop the filecoin123 block explorer to visually display the current status of the blockchain, and publicly provide the query of the accounts, messages, blocks and other public information on the filecoin blockchain.<br>
+Throughout the history of blockchain, wallet has always been an important tool for the transfer in and out of token. In Filecoin , wallet can make token flow faster and more convenient, and improve the flow ability;<br>
+FileWallet is a mobile digital crypto wallet that supports filecoin.<br>
 
-At the same time, we will integrate our query API and provide it to the relevant developers, so that their tools can query the information on the blockchain quickly, and make the the filecoin ecosystem better.
+This wallet also has the characteristics of distributed, can generate wallet locally in the client without relying on the network and server. At the same time, it is safe enough to encrypt information locally. Users can use FileWallet query balance, authorize, receive and send fil anytime and anywhere,
 
 ## Deliverables
--  1.A full-featured Web block explorer that can view blocks, accounts and messages.
-- -It can be accessed through HTTPS: / / website;
-- -It can be queried on the mobile device;
-- -Fast loading and good interaction;
-- -it could switch between Chinese and English;
-- 2.Well documented code base;
-- 3.Well document and API interface to user
-- 4.Open source repository for block browser code base, dual licensed under license-mit and license-apache
+- 1. A mobile wallet, including IOS and Android devices.
+- -Users can accept and transmit fil
+- -Support security key management, backup and recovery
+- -Show network confirmed transactions
+- 2. Use with the filecoin node API (local or remote lotus and go filecoin) to  perform the expected workflow
+- 3. developed by Java and swift
+- 4. has a well-documented, human-readable codebase
+- 5.is well-tested and would be convenient to security audit
+- 6. Open source, dual licensing (under MIT and Apache 2)
 
 ## Recommended Team
 - A small team with strong design and web development skills (please show evidence of this in your proposal)
