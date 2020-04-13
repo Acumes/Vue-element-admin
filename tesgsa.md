@@ -39,17 +39,6 @@ At the same time, we will integrate our query API and provide it to the relevant
 
 ## Milestones & Funding
 **Total Funding Amount:** 1300$<br>
-|    TYPE   |ASCII                          |HTML
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
-#### Staffing costs
-|    TYPE   |ASCII                          |HTML
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
-<br>
-## Maintain plan
-ZHOU Shuyue : Filecoin Engineer and Researcher
+
+## Milestones & Funding
+- ZHOU Shuyue : Filecoin Engineer and Researcher
