@@ -1,8 +1,5 @@
-## RFP: Block Explorer
-**Name of Project:** Filecoin123 Block Explorer
-**RFP Category:** app-dev
-**Proposer:** @IPFS-grandhelmsman
-***************
+# RFP: Block Explorer
+
 As a blockchain, filecoin is used by miners to record every blocksets, blocks and messages on the whole chain by a distributed way.
 Miner pays attention to their own storage capacity and storage stability, and storage users care about the balance of storage accounts. Filecoin developers pay attention to the block efficiency and transaction rate on the filecoin blockchain.
 Based on this, we will develop the filecoin123 block explorer to visually display the current status of the blockchain, and publicly provide the query of the accounts, messages, blocks and other public information on the filecoin blockchain.
@@ -10,7 +7,6 @@ Based on this, we will develop the filecoin123 block explorer to visually displa
 At the same time, we will integrate our query API and provide it to the relevant developers, so that their tools can query the information on the blockchain quickly, and make the the filecoin ecosystem better.
 <br>
 ### Deliverables
-***************
 
 -  1.A full-featured Web block explorer that can view blocks, accounts and messages.
 - -It can be accessed through HTTPS: / / website;
@@ -83,14 +79,11 @@ At the same time, we will integrate our query API and provide it to the relevant
 [http://www.grandhelmsman.com/cn/index.html](http://www.grandhelmsman.com/cn/index.html) 
 <br>
 ## Relevant Experience
-***************
 Helmsman is a team dedicated to IPFs and Web3.0. We have been actively involved in the construction of distributed storage ecosystem, and as a miner, we actively participated in the storage function test of filecoin Test stage, invested a lot of equipment for testing, and saved a lot of effective data. At the same time, in the previous official first round trusted settings of filecoin, participate in the test of large storage performance. Our team has accumulated rich knowledge and experience (blockchain experience of Ethereum and Bitcoin) on the blockchain at the same time.
 ## Team code repositories
-***************
 [https://github.com/IPFS-grandhelmsman/sarah-client ](https://github.com/IPFS-grandhelmsman/sarah-client ) 
 [https://github.com/IPFS-grandhelmsman/sarah-console](https://github.com/IPFS-grandhelmsman/sarah-console) 
 ## Additional Information
-***************
 In pursuit of excellence, we are committed to becoming the leading distributed decentralized storage device and technology service provider in the industry, improving the level of information storage, communication and propagation for all human beings.
 <br>
 We have professional operation and maintenance capabilities of large-scale hardware equipment, and many years of experience rooted in the blockchain industry. We believe that we can better complete the blockchain explorer.
