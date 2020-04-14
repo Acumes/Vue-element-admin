@@ -15,16 +15,7 @@ SDK Interface Description:
 - The SDK splits the files on the client side and supports the function of point continuation.
 - File encryption is performed by the corresponding encryption protocol. The stored file is the encrypted file. Downloading is performed by the corresponding decryption protocol to decrypt and download the file.
 - The file copy can distribute the whole network according to the hot data and cold data, which can not only ensure the data security of the whole network, but also accelerate the CDN.<br>
-This tool is to quickly understand the decentralized application tools of filecoin in distributed storage system, which can help developers reduce their deep understanding of the huge system of filecoin and build their own application software.
-- 1.A web application tool, full-featured file upload (support breakpoint continuation), file retrieval, file encryption, etc.
-- -Available at http://film-tools.grandhelmsman.com/;
-- -File upload, support breakpoint renewal;
-- -File encryption;
-- -Multiple copies;
-- -Global hot data, improve access speed;
-- 2.Well documented code base;
-- 3.Update user oriented documents with SDK or API interface;
-- 4.This open source repository is dual licensed under license-mit and license-apache.
+This tool is to quickly understand the decentralized application tools of filecoin in distributed storage system, which can help 
 ## Deliverables
 - 1.A mobile wallet, including IOS and Android devices.
 - -Users can accept and transmit fil
