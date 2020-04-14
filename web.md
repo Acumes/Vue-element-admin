@@ -57,9 +57,9 @@ At the same time, we will integrate our query API and provide it to the relevant
 - XU Zhiyong：WEB Engineer
 - YUE Manling : UI Designer
 ## Team Member Github Profiles
-- [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
-- [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
-- [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
+- [https://github.com/chenzhi201901](https://github.com/chenzhi201901) (personal)
+- [https://github.com/free1139](https://github.com/free1139) (personal)
+- [https://github.com/IPFS-grandhelmsman](https://github.com/IPFS-grandhelmsman) (personal)
 ## Team Website
 @IPFS-grandhelmsman<br>
 http://www.grandhelmsman.com/cn/index.html<br>
