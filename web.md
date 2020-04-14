@@ -4,7 +4,9 @@
  
  **RFP Category:** app-dev
  
-  **Proposer:** @IPFS-grandhelmsman
+ **Proposer:** @IPFS-grandhelmsman
+ 
+ **Do you agree to open source all work you do on behalf of this RFP and dual-license under MIT and APACHE2 licenses?:** Yes
   
  # Project Description
 As a blockchain, filecoin is used by miners to record every blocksets, blocks and messages on the whole chain by a distributed way.<br>
