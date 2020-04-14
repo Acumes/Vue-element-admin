@@ -15,13 +15,13 @@ FileWallet is a mobile digital crypto wallet that supports filecoin.<br>
 This wallet also has the characteristics of distributed, can generate wallet locally in the client without relying on the network and server. At the same time, it is safe enough to encrypt information locally. Users can use FileWallet query balance, authorize, receive and send fil anytime and anywhere,
 
 ## Deliverables
-1. A mobile wallet, including IOS and Android devices.
--Users can accept and transmit fil
--Support security key management, backup and recovery
--Show network confirmed transactions
-2. Use with the filecoin node API (local or remote lotus and go filecoin) to  perform the expected workflow
-3. developed by Java and swift
-4. has a well-documented, human-readable codebase
+1. A mobile wallet, including IOS and Android devices.<br>
+-Users can accept and transmit fil<br>
+-Support security key management, backup and recovery<br>
+-Show network confirmed transactions<br>
+2. Use with the filecoin node API (local or remote lotus and go filecoin) to  perform the expected workflow<br>
+3. developed by Java and swift<br>
+4. has a well-documented, human-readable codebase<br>
 5. Open source, dual licensing (under MIT and Apache 2)
 
 ## Detailed Requirements & Constraints
