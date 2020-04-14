@@ -73,7 +73,7 @@ Filewallet’s goal is to keep normal using during the testnet and mainnet. We h
 @IPFS-grandhelmsman<br>
 http://www.grandhelmsman.com/cn/index.html<br>
 ## Relevant Experience
-Helmsman is a team dedicated to IPFs and Web3.0. We have been actively involved in the construction of distributed storage ecosystem, and as a miner, we actively participated in the storage function test of filecoin Test stage, invested a lot of equipment for testing, and saved a lot of effective data. At the same time, in the previous official first round trusted settings of filecoin, participate in the test of large storage performance.<br>
+Helmsman is a team dedicated to IPFS and Web3.0. We have been actively involved in the construction of distributed storage ecosystem, and as a miner, we actively participated in the storage function test of filecoin Test stage, invested a lot of equipment for testing, and saved a lot of effective data. At the same time, in the previous official first round trusted settings of filecoin, participate in the test of large storage performance.<br>
 We can use my own stable nodes to request data to wallets. We have developed digital crypto wallets. (ERC20). Our team has accumulated rich knowledge and experience (blockchain experience of Ethereum and Bitcoin) on the blockchain at the same time.
 ## Team code repositories
 [https://github.com/IPFS-grandhelmsman/sarah-client ](https://github.com/IPFS-grandhelmsman/sarah-client ) <br>
