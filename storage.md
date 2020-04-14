@@ -50,8 +50,7 @@ This tool is to quickly understand the decentralized application tools of fileco
 ## Maintain plan
 1. Continuously update the code and keep it consistent with the filecoin interface;<br>
 2. Constantly improve their own functions and user needs;<br>
-3. Continuously operate and maintain the server, continuously upgrade the server, and maintain the smooth access of users in testnet and mainnet.<br>
-4. Keep SDK or API updated in time;<br>
+3. Keep SDK or API updated in time;<br>
 
 ## Recommended Team
 - ZHOU Shuyue : Filecoin Engineer and Researcher
