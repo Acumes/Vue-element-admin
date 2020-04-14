@@ -4,9 +4,9 @@
  
  **RFP Category:** app-dev
  
-  **Proposer:** @IPFS-grandhelmsman
-**Do you agree to open source all work you do on behalf of this RFP and dual-license under MIT and APACHE2 licenses?:** Yes
-   
+ **Proposer:** @IPFS-grandhelmsman
+ 
+ **Do you agree to open source all work you do on behalf of this RFP and dual-license under MIT and APACHE2 licenses?:** Yes
   
  # Project Description
 Filecoin file storage and retrieval application tool is an application tool based on the combination of filecoin incentive layer and IPFs distributed file storage system. The storage demander selects the miners in the filecoin list through the web client, and stores additional services (such as number of copies, encryption service, CDN acceleration service, etc.) according to the needs of customers, and pays a certain fil currency for file storage.<br>
