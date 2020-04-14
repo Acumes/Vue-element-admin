@@ -11,10 +11,12 @@
 Filecoin file storage and retrieval application tool is an application tool based on the combination of filecoin incentive layer and IPFs distributed file storage system. The storage demander selects the miners in the filecoin list through the web client, and stores additional services (such as number of copies, encryption service, CDN acceleration service, etc.) according to the needs of customers, and pays a certain fil currency for file storage.<br>
 Search files are browsed and downloaded through the set gateway. For example, picture files can be browsed directly through the web, and other files can be downloaded.<br>
 The SDK layer encapsulates basic functions such as upload, fragment, breakpoint continue, download, encryption, copy, etc. it supports SDK layers of various languages, such as go, Java, etc.<br>
+<br>
 SDK Interface Description:
 - The SDK splits the files on the client side and supports the function of point continuation.
 - File encryption is performed by the corresponding encryption protocol. The stored file is the encrypted file. Downloading is performed by the corresponding decryption protocol to decrypt and download the file.
-- The file copy can distribute the whole network according to the hot data and cold data, which can not only ensure the data security of the whole network, but also accelerate the CDN.<br>
+- The file copy can distribute the whole network according to the hot data and cold data, which can not only ensure the data security of the whole network, but also accelerate the CDN.
+<br>
 This tool is to quickly understand the decentralized application tools of filecoin in distributed storage system, which can help 
 ## Deliverables
 - 1.A mobile wallet, including IOS and Android devices.
