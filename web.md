@@ -31,24 +31,32 @@ At the same time, we will integrate our query API and provide it to the relevant
 
 ### Data to Display
 - The whole network dashboard of blockchain filecoin is displayed. Users can search blocks, accounts, messages and other information.<br>
-<img src="https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply1909.png" width="300" height="550" />
+![image](https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply1909.png)
 - Users can quickly query each block information of filecoin;<br>
-<img src="https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply1971.png" width="300" height="550" />
+![image](https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply1971.png)
 - User can query the details of the account;<br>
-<img src="https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply.png" width="300" height="550" />
+![image](https://upload.grandhelmsman.com/hlm/stage/Filecoin123_blockchain_apply2016.png)
 
 ## Milestones & Funding
-**Total Funding Amount:** 1300$<br>
-| 栏目1 | 栏目2 | 栏目2 | 栏目2 | 栏目2 |
-| ----- | ----- | ----- |----- |----- |
-| 内容1 | 内容2 | 内容2 | 内容2 | 内容2 |
+**Total Funding Amount:** 14000$<br>
+| Milestone No. | Milestone Description | Funding（$） | Estimated Timeframe |
+| ----- | ----- | ----- |----- |
+| 1 | High-fidelity design mockups, Design Interface, database, system structure Design some UI elements implemented | 3000 | 1 weeks |
+| 2 | Completed implementation of dashboard of Filecoin blockchain | 4000 | 1 weeks |
+| 3 | Completed implementation of searching of block、accounts、miners on the blockchain。 Compatible the mobile | 4000 | 1 weeks |
+| 4 | Integrated the Api and the document All project deliverables are completed and added to the Filecoin shipyard (website, documentation, codebase) | 3000 | 1 weeks |
+## Maintain plan
+- 1.Maintain the update of the interface with the Filecoin blockchain, including the whole network information query in the test phase;
+- 2.Upgrade the UI interface of the website;
+- 3.Continuously operate and maintain the server, continuously upgrade the server, and maintain the smooth access of users;
+- 4.Keep API interface and documents updated;
 ## Recommended Team
 - ZHOU Shuyue : Filecoin Engineer and Researcher
 - Chen Zhijie : FullStack Developver
 - ZHAO Huayi: Product Manager
 - XU Zhiyong：WEB Engineer
 - YUE Manling : UI Designer
-## Recommended Team
+## Team Member Github Profiles
 - [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
 - [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
 - [https://github.com/chenzhi201901 ](https://github.com/chenzhi201901) (personal)
