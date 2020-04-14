@@ -55,7 +55,7 @@ This tool is to quickly understand the decentralized application tools of fileco
 ## Recommended Team
 - ZHOU Shuyue : Filecoin Engineer and Researcher
 - Chen Zhijie : FullStack Developver
-- Huang tiefengi: WEB Engineer
+- Huang tiefeng: WEB Engineer
 - XU Gongpu：Android Developer
 - YUE Manling: UI Designer
 ## Team Member Github Profiles
